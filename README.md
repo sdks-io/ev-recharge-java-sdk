@@ -31,12 +31,12 @@ Install the SDK by adding the following dependency in your project's pom.xml fil
 <dependency>
   <groupId>io.sdks</groupId>
   <artifactId>ev-recharge-sdk</artifactId>
-  <version>1.1.0</version>
+  <version>1.2.0</version>
 </dependency>
 ```
 
 You can also view the package at:
-https://central.sonatype.com/artifact/io.sdks/ev-recharge-sdk/1.1.0
+https://central.sonatype.com/artifact/io.sdks/ev-recharge-sdk/1.2.0
 
 ## Test the SDK
 
@@ -50,15 +50,15 @@ In Eclipse, for running the tests do the following:
 
 ## Initialize the API Client
 
-**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/client.md)
+**_Note:_** Documentation for the client can be found [here.](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/client.md)
 
 The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
 | `environment` | `Environment` | The API environment. <br> **Default: `Environment.PRODUCTION`** |
-| `httpClientConfig` | [`Consumer<HttpClientConfiguration.Builder>`](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-client-configuration-builder.md) | Set up Http Client Configuration instance. |
-| `clientCredentialsAuth` | [`ClientCredentialsAuth`](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/$a/https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
+| `httpClientConfig` | [`Consumer<HttpClientConfiguration.Builder>`](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-client-configuration-builder.md) | Set up Http Client Configuration instance. |
+| `clientCredentialsAuth` | [`ClientCredentialsAuth`](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/$a/https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
 
 The API client can be initialized as follows:
 
@@ -90,25 +90,25 @@ The SDK can be configured to use a different environment for making API calls. A
 
 This API uses the following authentication schemes.
 
-* [`BearerAuth (OAuth 2 Client Credentials Grant)`](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/$a/https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/oauth-2-client-credentials-grant.md)
+* [`BearerAuth (OAuth 2 Client Credentials Grant)`](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/$a/https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/oauth-2-client-credentials-grant.md)
 
 ## List of APIs
 
-* [Locations](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/controllers/locations.md)
-* [Charging](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/controllers/charging.md)
+* [Locations](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/controllers/locations.md)
+* [Charging](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/controllers/charging.md)
 
 ## Classes Documentation
 
-* [Utility Classes](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/utility-classes.md)
-* [HttpRequest](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-request.md)
-* [HttpResponse](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-response.md)
-* [HttpStringResponse](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-string-response.md)
-* [HttpContext](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-context.md)
-* [HttpBodyRequest](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-body-request.md)
-* [HttpCallback Interface](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-callback-interface.md)
-* [Headers](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/headers.md)
-* [ApiException](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/api-exception.md)
-* [Configuration Interface](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/configuration-interface.md)
-* [HttpClientConfiguration](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-client-configuration.md)
-* [HttpClientConfiguration.Builder](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.1.0/doc/http-client-configuration-builder.md)
+* [Utility Classes](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/utility-classes.md)
+* [HttpRequest](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-request.md)
+* [HttpResponse](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-response.md)
+* [HttpStringResponse](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-string-response.md)
+* [HttpContext](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-context.md)
+* [HttpBodyRequest](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-body-request.md)
+* [HttpCallback Interface](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-callback-interface.md)
+* [Headers](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/headers.md)
+* [ApiException](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/api-exception.md)
+* [Configuration Interface](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/configuration-interface.md)
+* [HttpClientConfiguration](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-client-configuration.md)
+* [HttpClientConfiguration.Builder](https://www.github.com/sdks-io/ev-recharge-java-sdk/tree/1.2.0/doc/http-client-configuration-builder.md)
 
