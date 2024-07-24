@@ -5,7 +5,6 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| `env` | `EnvEnum` | This variable specifies the type of environment. Environments:<br><br>* `api` - Production<br>* `api-test` - UAT<br>*Default*: `EnvEnum.ENUM_APITESTSHELLCOM` |
 | `environment` | `Environment` | The API environment. <br> **Default: `Environment.PRODUCTION`** |
 | `httpClientConfig` | [`Consumer<HttpClientConfiguration.Builder>`](http-client-configuration-builder.md) | Set up Http Client Configuration instance. |
 | `clientCredentialsAuth` | [`ClientCredentialsAuth`]($a/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
@@ -22,7 +21,6 @@ ShellEVClient client = new ShellEVClient.Builder()
         )
         .build())
     .environment(Environment.PRODUCTION)
-    .env(EnvEnum.ENUM_APITESTSHELLCOM)
     .build();
 ```
 
@@ -34,8 +32,8 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 
 | Name | Description | Return Type |
 |  --- | --- | --- |
-| `getChargingController()` | Provides access to Charging controller. | `ChargingController` |
 | `getLocationsController()` | Provides access to Locations controller. | `LocationsController` |
+| `getChargingController()` | Provides access to Charging controller. | `ChargingController` |
 | `getOAuthAuthorizationController()` | Provides access to OAuthAuthorization controller. | `OAuthAuthorizationController` |
 
 ### Methods
@@ -44,7 +42,6 @@ The gateway for the SDK. This class acts as a factory for the Controllers and al
 |  --- | --- | --- |
 | `shutdown()` | Shutdown the underlying HttpClient instance. | `void` |
 | `getEnvironment()` | Current API environment. | `Environment` |
-| `getEnv()` | This variable specifies the type of environment. Environments:   * `api` - Production   * `api-test` - UAT | `EnvEnum` |
 | `getHttpClient()` | The HTTP Client instance to use for making HTTP requests. | `HttpClient` |
 | `getHttpClientConfig()` | Http Client Configuration instance. | [`ReadonlyHttpClientConfiguration`](http-client-configuration.md) |
 | `getClientCredentialsAuth()` | The credentials to use with ClientCredentialsAuth. | [`ClientCredentialsAuth`]($a/oauth-2-client-credentials-grant.md) |

@@ -11,7 +11,7 @@ A Marker is a place on the map that represent a single Location
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `MarkerType` | `String` | Required | Identifies the marker type. If it''s a `SingleLocationMarker`, then the value is `SingleLocation` | String getMarkerType() | setMarkerType(String markerType) |
+| `MarkerType` | `String` | Required | Identifies the marker type. If it’s a `SingleLocationMarker`, then the value is `SingleLocation` | String getMarkerType() | setMarkerType(String markerType) |
 | `UniqueKey` | `String` | Optional | Uniquely identifies the marker object | String getUniqueKey() | setUniqueKey(String uniqueKey) |
 | `Status` | [`SingleLocationMarkerStatusEnum`](../../doc/models/single-location-marker-status-enum.md) | Optional | Minimum of all status values in the Marker, e.g. if at least one Evse in the Marker is available, the value will be available | SingleLocationMarkerStatusEnum getStatus() | setStatus(SingleLocationMarkerStatusEnum status) |
 | `Coordinates` | [`Coordinates`](../../doc/models/coordinates.md) | Optional | Coordinates of the Shell Recharge Site Location | Coordinates getCoordinates() | setCoordinates(Coordinates coordinates) |

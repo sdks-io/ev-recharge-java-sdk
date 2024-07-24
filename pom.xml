@@ -8,7 +8,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>io.sdks</groupId>
   <artifactId>ev-recharge-sdk</artifactId>
-  <version>1.0.0</version>
+  <version>1.1.0</version>
   <packaging>jar</packaging>
   <name>EV Recharge SDK</name>
   <description>This API Product provides the option to manage charging at all public Shell Recharge locations. The end points provides control to start, stop and get status of the charging session.</description>
@@ -45,17 +45,17 @@
     <dependency>
       <groupId>io.apimatic</groupId>
       <artifactId>core-interfaces</artifactId>
-      <version>[0.3, 0.4)</version>
+      <version>[0.3.1, 0.4)</version>
     </dependency>
     <dependency>
       <groupId>io.apimatic</groupId>
       <artifactId>core</artifactId>
-      <version>[0.6, 0.7)</version>
+      <version>[0.6.3, 0.7)</version>
     </dependency>
     <dependency>
       <groupId>io.apimatic</groupId>
       <artifactId>okhttp-client-adapter</artifactId>
-      <version>[0.3, 0.4)</version>
+      <version>[0.3.1, 0.4)</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
