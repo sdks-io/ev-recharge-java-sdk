@@ -45,7 +45,6 @@ public class ElectricalProperties {
 
     /**
      * Getter for PowerType.
-     * Power Type used in this connector.
      * @return Returns the ElectricalPropertiesPowerTypeEnum
      */
     @JsonGetter("powerType")
@@ -56,7 +55,6 @@ public class ElectricalProperties {
 
     /**
      * Setter for PowerType.
-     * Power Type used in this connector.
      * @param powerType Value for ElectricalPropertiesPowerTypeEnum
      */
     @JsonSetter("powerType")

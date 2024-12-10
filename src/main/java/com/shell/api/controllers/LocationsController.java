@@ -19,12 +19,7 @@ import com.shell.api.http.request.HttpMethod;
 import com.shell.api.models.GetEVLocationsAuthorizationMethodsEnum;
 import com.shell.api.models.GetEVLocationsConnectorTypesEnum;
 import com.shell.api.models.GetEVLocationsEvseStatusEnum;
-import com.shell.api.models.LocationsMarkersAuthorizationMethodsEnum;
-import com.shell.api.models.LocationsMarkersConnectorTypesEnum;
-import com.shell.api.models.LocationsMarkersEvseStatusEnum;
-import com.shell.api.models.NearbyLocationsAuthorizationMethodsEnum;
 import com.shell.api.models.NearbyLocationsConnectorTypesEnum;
-import com.shell.api.models.NearbyLocationsEvseStatusEnum;
 import com.shell.api.models.Response;
 import com.shell.api.models.SingleLocationMarkerResponse;
 import io.apimatic.core.ApiCall;
@@ -196,7 +191,7 @@ public final class LocationsController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations/v1/ev")
+                        .path("/locations")
                         .queryParam(param -> param.key("evseStatus")
                                 .value((evseStatus != null) ? evseStatus.value() : null).isRequired(false))
                         .queryParam(param -> param.key("connectorTypes")
@@ -321,7 +316,7 @@ public final class LocationsController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations/v1/ev/{id}")
+                        .path("/locations/{id}")
                         .queryParam(param -> param.key("providerId")
                                 .value(providerId).isRequired(false))
                         .queryParam(param -> param.key("since")
@@ -413,10 +408,10 @@ public final class LocationsController extends BaseController {
             final String evseId,
             final String evseExternalId,
             final String operatorName,
-            final NearbyLocationsEvseStatusEnum evseStatus,
+            final GetEVLocationsEvseStatusEnum evseStatus,
             final NearbyLocationsConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final NearbyLocationsAuthorizationMethodsEnum authorizationMethods,
+            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final List<String> country,
@@ -478,10 +473,10 @@ public final class LocationsController extends BaseController {
             final String evseId,
             final String evseExternalId,
             final String operatorName,
-            final NearbyLocationsEvseStatusEnum evseStatus,
+            final GetEVLocationsEvseStatusEnum evseStatus,
             final NearbyLocationsConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final NearbyLocationsAuthorizationMethodsEnum authorizationMethods,
+            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final List<String> country,
@@ -508,10 +503,10 @@ public final class LocationsController extends BaseController {
             final String evseId,
             final String evseExternalId,
             final String operatorName,
-            final NearbyLocationsEvseStatusEnum evseStatus,
+            final GetEVLocationsEvseStatusEnum evseStatus,
             final NearbyLocationsConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final NearbyLocationsAuthorizationMethodsEnum authorizationMethods,
+            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final List<String> country,
@@ -520,7 +515,7 @@ public final class LocationsController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations/v1/ev/nearby")
+                        .path("/locations/nearby")
                         .queryParam(param -> param.key("latitude")
                                 .value(latitude).isRequired(false))
                         .queryParam(param -> param.key("longitude")
@@ -640,10 +635,10 @@ public final class LocationsController extends BaseController {
             final double east,
             final double north,
             final String zoom,
-            final LocationsMarkersEvseStatusEnum evseStatus,
-            final LocationsMarkersConnectorTypesEnum connectorTypes,
+            final GetEVLocationsEvseStatusEnum evseStatus,
+            final GetEVLocationsConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final LocationsMarkersAuthorizationMethodsEnum authorizationMethods,
+            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final String locationExternalId,
@@ -713,10 +708,10 @@ public final class LocationsController extends BaseController {
             final double east,
             final double north,
             final String zoom,
-            final LocationsMarkersEvseStatusEnum evseStatus,
-            final LocationsMarkersConnectorTypesEnum connectorTypes,
+            final GetEVLocationsEvseStatusEnum evseStatus,
+            final GetEVLocationsConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final LocationsMarkersAuthorizationMethodsEnum authorizationMethods,
+            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final String locationExternalId,
@@ -745,10 +740,10 @@ public final class LocationsController extends BaseController {
             final double east,
             final double north,
             final String zoom,
-            final LocationsMarkersEvseStatusEnum evseStatus,
-            final LocationsMarkersConnectorTypesEnum connectorTypes,
+            final GetEVLocationsEvseStatusEnum evseStatus,
+            final GetEVLocationsConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final LocationsMarkersAuthorizationMethodsEnum authorizationMethods,
+            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final String locationExternalId,
@@ -761,7 +756,7 @@ public final class LocationsController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations/v1/ev/markers")
+                        .path("/locations/markers")
                         .queryParam(param -> param.key("west")
                                 .value(west).isRequired(false))
                         .queryParam(param -> param.key("south")

@@ -41,7 +41,6 @@ public class OpeningHoursObject {
 
     /**
      * Getter for WeekDay.
-     * 3 letter day of the week
      * @return Returns the OpeningHoursObjectWeekDayEnum
      */
     @JsonGetter("weekDay")
@@ -52,7 +51,6 @@ public class OpeningHoursObject {
 
     /**
      * Setter for WeekDay.
-     * 3 letter day of the week
      * @param weekDay Value for OpeningHoursObjectWeekDayEnum
      */
     @JsonSetter("weekDay")

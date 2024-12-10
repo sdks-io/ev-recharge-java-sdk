@@ -19,7 +19,7 @@ public class ConnectorVO {
     private ConnectorVOConnectorTypeEnum connectorType;
     private ElectricalProperties electricalProperties;
     private Boolean fixedCable;
-    private TariffVO tariff;
+    private Tariff tariff;
     private String updated;
     private ConnectorVOUpdatedByEnum updatedBy;
     private String deleted;
@@ -37,7 +37,7 @@ public class ConnectorVO {
      * @param  connectorType  ConnectorVOConnectorTypeEnum value for connectorType.
      * @param  electricalProperties  ElectricalProperties value for electricalProperties.
      * @param  fixedCable  Boolean value for fixedCable.
-     * @param  tariff  TariffVO value for tariff.
+     * @param  tariff  Tariff value for tariff.
      * @param  updated  String value for updated.
      * @param  updatedBy  ConnectorVOUpdatedByEnum value for updatedBy.
      * @param  deleted  String value for deleted.
@@ -48,7 +48,7 @@ public class ConnectorVO {
             ConnectorVOConnectorTypeEnum connectorType,
             ElectricalProperties electricalProperties,
             Boolean fixedCable,
-            TariffVO tariff,
+            Tariff tariff,
             String updated,
             ConnectorVOUpdatedByEnum updatedBy,
             String deleted) {
@@ -107,7 +107,6 @@ public class ConnectorVO {
 
     /**
      * Getter for ConnectorType.
-     * Type of the connector in the EVSE unit.
      * @return Returns the ConnectorVOConnectorTypeEnum
      */
     @JsonGetter("connectorType")
@@ -118,7 +117,6 @@ public class ConnectorVO {
 
     /**
      * Setter for ConnectorType.
-     * Type of the connector in the EVSE unit.
      * @param connectorType Value for ConnectorVOConnectorTypeEnum
      */
     @JsonSetter("connectorType")
@@ -172,22 +170,20 @@ public class ConnectorVO {
 
     /**
      * Getter for Tariff.
-     * Tariff details for charging on this Connector
-     * @return Returns the TariffVO
+     * @return Returns the Tariff
      */
     @JsonGetter("tariff")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public TariffVO getTariff() {
+    public Tariff getTariff() {
         return tariff;
     }
 
     /**
      * Setter for Tariff.
-     * Tariff details for charging on this Connector
-     * @param tariff Value for TariffVO
+     * @param tariff Value for Tariff
      */
     @JsonSetter("tariff")
-    public void setTariff(TariffVO tariff) {
+    public void setTariff(Tariff tariff) {
         this.tariff = tariff;
     }
 
@@ -214,7 +210,6 @@ public class ConnectorVO {
 
     /**
      * Getter for UpdatedBy.
-     * Source of the last update
      * @return Returns the ConnectorVOUpdatedByEnum
      */
     @JsonGetter("updatedBy")
@@ -225,7 +220,6 @@ public class ConnectorVO {
 
     /**
      * Setter for UpdatedBy.
-     * Source of the last update
      * @param updatedBy Value for ConnectorVOUpdatedByEnum
      */
     @JsonSetter("updatedBy")
@@ -294,7 +288,7 @@ public class ConnectorVO {
         private ConnectorVOConnectorTypeEnum connectorType;
         private ElectricalProperties electricalProperties;
         private Boolean fixedCable;
-        private TariffVO tariff;
+        private Tariff tariff;
         private String updated;
         private ConnectorVOUpdatedByEnum updatedBy;
         private String deleted;
@@ -353,10 +347,10 @@ public class ConnectorVO {
 
         /**
          * Setter for tariff.
-         * @param  tariff  TariffVO value for tariff.
+         * @param  tariff  Tariff value for tariff.
          * @return Builder
          */
-        public Builder tariff(TariffVO tariff) {
+        public Builder tariff(Tariff tariff) {
             this.tariff = tariff;
             return this;
         }

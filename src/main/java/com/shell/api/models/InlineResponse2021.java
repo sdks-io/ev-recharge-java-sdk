@@ -15,7 +15,7 @@ import java.util.UUID;
  */
 public class InlineResponse2021 {
     private UUID requestId;
-    private InlineResponse2021StatusEnum status;
+    private GetChargeSessionRetrieveResponse200JsonStatusEnum status;
 
     /**
      * Default constructor.
@@ -26,11 +26,11 @@ public class InlineResponse2021 {
     /**
      * Initialization constructor.
      * @param  requestId  UUID value for requestId.
-     * @param  status  InlineResponse2021StatusEnum value for status.
+     * @param  status  GetChargeSessionRetrieveResponse200JsonStatusEnum value for status.
      */
     public InlineResponse2021(
             UUID requestId,
-            InlineResponse2021StatusEnum status) {
+            GetChargeSessionRetrieveResponse200JsonStatusEnum status) {
         this.requestId = requestId;
         this.status = status;
     }
@@ -59,21 +59,19 @@ public class InlineResponse2021 {
 
     /**
      * Getter for Status.
-     * Indicates overall status of the request
-     * @return Returns the InlineResponse2021StatusEnum
+     * @return Returns the GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonGetter("status")
-    public InlineResponse2021StatusEnum getStatus() {
+    public GetChargeSessionRetrieveResponse200JsonStatusEnum getStatus() {
         return status;
     }
 
     /**
      * Setter for Status.
-     * Indicates overall status of the request
-     * @param status Value for InlineResponse2021StatusEnum
+     * @param status Value for GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonSetter("status")
-    public void setStatus(InlineResponse2021StatusEnum status) {
+    public void setStatus(GetChargeSessionRetrieveResponse200JsonStatusEnum status) {
         this.status = status;
     }
 
@@ -101,7 +99,7 @@ public class InlineResponse2021 {
      */
     public static class Builder {
         private UUID requestId;
-        private InlineResponse2021StatusEnum status;
+        private GetChargeSessionRetrieveResponse200JsonStatusEnum status;
 
         /**
          * Initialization constructor.
@@ -112,9 +110,9 @@ public class InlineResponse2021 {
         /**
          * Initialization constructor.
          * @param  requestId  UUID value for requestId.
-         * @param  status  InlineResponse2021StatusEnum value for status.
+         * @param  status  GetChargeSessionRetrieveResponse200JsonStatusEnum value for status.
          */
-        public Builder(UUID requestId, InlineResponse2021StatusEnum status) {
+        public Builder(UUID requestId, GetChargeSessionRetrieveResponse200JsonStatusEnum status) {
             this.requestId = requestId;
             this.status = status;
         }
@@ -131,10 +129,10 @@ public class InlineResponse2021 {
 
         /**
          * Setter for status.
-         * @param  status  InlineResponse2021StatusEnum value for status.
+         * @param  status  GetChargeSessionRetrieveResponse200JsonStatusEnum value for status.
          * @return Builder
          */
-        public Builder status(InlineResponse2021StatusEnum status) {
+        public Builder status(GetChargeSessionRetrieveResponse200JsonStatusEnum status) {
             this.status = status;
             return this;
         }

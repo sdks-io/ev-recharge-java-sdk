@@ -93,7 +93,7 @@ public final class ChargingController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/ev/v1/charge-session/start")
+                        .path("/charge-session/start")
                         .bodyParam(param -> param.value(body).isRequired(false))
                         .bodySerializer(() ->  ApiHelper.serialize(body))
                         .headerParam(param -> param.key("RequestId")
@@ -180,7 +180,7 @@ public final class ChargingController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/ev/v1/charge-session/stop")
+                        .path("/charge-session/stop")
                         .queryParam(param -> param.key("sessionId")
                                 .value(sessionId))
                         .headerParam(param -> param.key("RequestId")
@@ -265,7 +265,7 @@ public final class ChargingController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/ev/v1/charge-session/retrieve")
+                        .path("/charge-session/retrieve")
                         .queryParam(param -> param.key("sessionId")
                                 .value(sessionId))
                         .headerParam(param -> param.key("RequestId")
@@ -350,7 +350,7 @@ public final class ChargingController extends BaseController {
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/ev/v1/charge-session/active")
+                        .path("/charge-session/active")
                         .queryParam(param -> param.key("emaId")
                                 .value(emaId))
                         .headerParam(param -> param.key("RequestId")

@@ -16,7 +16,7 @@ import java.util.UUID;
  */
 public class InlineResponse202 {
     private UUID requestId;
-    private InlineResponse202StatusEnum status;
+    private GetChargeSessionRetrieveResponse200JsonStatusEnum status;
     private List<InlineResponse202Data> data;
 
     /**
@@ -28,12 +28,12 @@ public class InlineResponse202 {
     /**
      * Initialization constructor.
      * @param  requestId  UUID value for requestId.
-     * @param  status  InlineResponse202StatusEnum value for status.
+     * @param  status  GetChargeSessionRetrieveResponse200JsonStatusEnum value for status.
      * @param  data  List of InlineResponse202Data value for data.
      */
     public InlineResponse202(
             UUID requestId,
-            InlineResponse202StatusEnum status,
+            GetChargeSessionRetrieveResponse200JsonStatusEnum status,
             List<InlineResponse202Data> data) {
         this.requestId = requestId;
         this.status = status;
@@ -64,21 +64,19 @@ public class InlineResponse202 {
 
     /**
      * Getter for Status.
-     * Indicates overall status of the request
-     * @return Returns the InlineResponse202StatusEnum
+     * @return Returns the GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonGetter("status")
-    public InlineResponse202StatusEnum getStatus() {
+    public GetChargeSessionRetrieveResponse200JsonStatusEnum getStatus() {
         return status;
     }
 
     /**
      * Setter for Status.
-     * Indicates overall status of the request
-     * @param status Value for InlineResponse202StatusEnum
+     * @param status Value for GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonSetter("status")
-    public void setStatus(InlineResponse202StatusEnum status) {
+    public void setStatus(GetChargeSessionRetrieveResponse200JsonStatusEnum status) {
         this.status = status;
     }
 
@@ -125,7 +123,7 @@ public class InlineResponse202 {
      */
     public static class Builder {
         private UUID requestId;
-        private InlineResponse202StatusEnum status;
+        private GetChargeSessionRetrieveResponse200JsonStatusEnum status;
         private List<InlineResponse202Data> data;
 
         /**
@@ -137,10 +135,10 @@ public class InlineResponse202 {
         /**
          * Initialization constructor.
          * @param  requestId  UUID value for requestId.
-         * @param  status  InlineResponse202StatusEnum value for status.
+         * @param  status  GetChargeSessionRetrieveResponse200JsonStatusEnum value for status.
          * @param  data  List of InlineResponse202Data value for data.
          */
-        public Builder(UUID requestId, InlineResponse202StatusEnum status,
+        public Builder(UUID requestId, GetChargeSessionRetrieveResponse200JsonStatusEnum status,
                 List<InlineResponse202Data> data) {
             this.requestId = requestId;
             this.status = status;
@@ -159,10 +157,10 @@ public class InlineResponse202 {
 
         /**
          * Setter for status.
-         * @param  status  InlineResponse202StatusEnum value for status.
+         * @param  status  GetChargeSessionRetrieveResponse200JsonStatusEnum value for status.
          * @return Builder
          */
-        public Builder status(InlineResponse202StatusEnum status) {
+        public Builder status(GetChargeSessionRetrieveResponse200JsonStatusEnum status) {
             this.status = status;
             return this;
         }

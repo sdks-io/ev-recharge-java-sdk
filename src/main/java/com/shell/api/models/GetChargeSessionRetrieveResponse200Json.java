@@ -65,7 +65,6 @@ public class GetChargeSessionRetrieveResponse200Json {
 
     /**
      * Getter for Status.
-     * Indicates overall status of the request
      * @return Returns the GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonGetter("status")
@@ -75,7 +74,6 @@ public class GetChargeSessionRetrieveResponse200Json {
 
     /**
      * Setter for Status.
-     * Indicates overall status of the request
      * @param status Value for GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonSetter("status")

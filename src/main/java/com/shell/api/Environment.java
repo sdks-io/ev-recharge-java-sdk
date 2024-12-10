@@ -18,12 +18,12 @@ import java.util.TreeMap;
  */
 public enum Environment {
     /**
-     * Production
+     * Production Server
      */
     PRODUCTION,
 
     /**
-     * Test
+     * Test Server
      */
     ENVIRONMENT2;
 

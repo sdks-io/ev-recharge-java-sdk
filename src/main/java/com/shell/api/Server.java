@@ -17,7 +17,9 @@ import java.util.TreeMap;
  * Server to be used.
  */
 public enum Server {
-    ENUM_DEFAULT;
+    ENUM_DEFAULT,
+
+    ACCESS_TOKEN_SERVER;
 
 
     private static TreeMap<String, Server> valueMap = new TreeMap<>();
@@ -25,8 +27,10 @@ public enum Server {
 
     static {
         ENUM_DEFAULT.value = "default";
+        ACCESS_TOKEN_SERVER.value = "access token server";
 
         valueMap.put("default", ENUM_DEFAULT);
+        valueMap.put("access token server", ACCESS_TOKEN_SERVER);
     }
 
     /**

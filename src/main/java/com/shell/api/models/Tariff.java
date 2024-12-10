@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 /**
- * This is a model class for TariffVO type.
+ * This is a model class for Tariff type.
  */
-public class TariffVO {
+public class Tariff {
     private Double startFee;
     private Double perMinute;
     private Double perKWh;
@@ -25,7 +25,7 @@ public class TariffVO {
     /**
      * Default constructor.
      */
-    public TariffVO() {
+    public Tariff() {
     }
 
     /**
@@ -38,7 +38,7 @@ public class TariffVO {
      * @param  updatedBy  TariffVOUpdatedByEnum value for updatedBy.
      * @param  structure  String value for structure.
      */
-    public TariffVO(
+    public Tariff(
             Double startFee,
             Double perMinute,
             Double perKWh,
@@ -203,20 +203,20 @@ public class TariffVO {
     }
 
     /**
-     * Converts this TariffVO into string format.
+     * Converts this Tariff into string format.
      * @return String representation of this class
      */
     @Override
     public String toString() {
-        return "TariffVO [" + "startFee=" + startFee + ", perMinute=" + perMinute + ", perKWh="
+        return "Tariff [" + "startFee=" + startFee + ", perMinute=" + perMinute + ", perKWh="
                 + perKWh + ", currency=" + currency + ", updated=" + updated + ", updatedBy="
                 + updatedBy + ", structure=" + structure + "]";
     }
 
     /**
-     * Builds a new {@link TariffVO.Builder} object.
+     * Builds a new {@link Tariff.Builder} object.
      * Creates the instance with the state of the current model.
-     * @return a new {@link TariffVO.Builder} object
+     * @return a new {@link Tariff.Builder} object
      */
     public Builder toBuilder() {
         Builder builder = new Builder()
@@ -231,7 +231,7 @@ public class TariffVO {
     }
 
     /**
-     * Class to build instances of {@link TariffVO}.
+     * Class to build instances of {@link Tariff}.
      */
     public static class Builder {
         private Double startFee;
@@ -315,12 +315,11 @@ public class TariffVO {
         }
 
         /**
-         * Builds a new {@link TariffVO} object using the set fields.
-         * @return {@link TariffVO}
+         * Builds a new {@link Tariff} object using the set fields.
+         * @return {@link Tariff}
          */
-        public TariffVO build() {
-            return new TariffVO(startFee, perMinute, perKWh, currency, updated, updatedBy,
-                    structure);
+        public Tariff build() {
+            return new Tariff(startFee, perMinute, perKWh, currency, updated, updatedBy, structure);
         }
     }
 }

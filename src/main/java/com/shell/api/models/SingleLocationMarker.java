@@ -126,8 +126,6 @@ public class SingleLocationMarker {
 
     /**
      * Getter for Status.
-     * Minimum of all status values in the Marker, e.g. if at least one Evse in the Marker is
-     * available, the value will be available
      * @return Returns the SingleLocationMarkerStatusEnum
      */
     @JsonGetter("status")
@@ -138,8 +136,6 @@ public class SingleLocationMarker {
 
     /**
      * Setter for Status.
-     * Minimum of all status values in the Marker, e.g. if at least one Evse in the Marker is
-     * available, the value will be available
      * @param status Value for SingleLocationMarkerStatusEnum
      */
     @JsonSetter("status")
