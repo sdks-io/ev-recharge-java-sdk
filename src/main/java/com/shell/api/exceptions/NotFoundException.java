@@ -92,4 +92,15 @@ public class NotFoundException extends ApiException {
     private void setErrors(List<NotFoundErrMsg> errors) {
         this.errors = errors;
     }
+
+    /**
+     * Converts this NotFoundException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "NotFoundException [" + "statusCode=" + getResponseCode() + ", message="
+                + getMessage() + ", requestId=" + requestId + ", status=" + status + ", errors="
+                + errors + "]";
+    }
 }

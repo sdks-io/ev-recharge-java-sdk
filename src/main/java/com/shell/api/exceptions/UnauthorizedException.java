@@ -90,4 +90,15 @@ public class UnauthorizedException extends ApiException {
     private void setErrors(List<UnauthorizedErrMsg> errors) {
         this.errors = errors;
     }
+
+    /**
+     * Converts this UnauthorizedException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "UnauthorizedException [" + "statusCode=" + getResponseCode() + ", message="
+                + getMessage() + ", requestId=" + requestId + ", status=" + status + ", errors="
+                + errors + "]";
+    }
 }

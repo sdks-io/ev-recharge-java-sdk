@@ -92,4 +92,15 @@ public class ServiceunavailableException extends ApiException {
     private void setErrors(List<ServiceunavailableErrMsg> errors) {
         this.errors = errors;
     }
+
+    /**
+     * Converts this ServiceunavailableException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "ServiceunavailableException [" + "statusCode=" + getResponseCode() + ", message="
+                + getMessage() + ", requestId=" + requestId + ", status=" + status + ", errors="
+                + errors + "]";
+    }
 }

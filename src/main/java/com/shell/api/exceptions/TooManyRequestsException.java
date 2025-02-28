@@ -92,4 +92,15 @@ public class TooManyRequestsException extends ApiException {
     private void setErrors(List<RatelimitErrMsg> errors) {
         this.errors = errors;
     }
+
+    /**
+     * Converts this TooManyRequestsException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "TooManyRequestsException [" + "statusCode=" + getResponseCode() + ", message="
+                + getMessage() + ", requestId=" + requestId + ", status=" + status + ", errors="
+                + errors + "]";
+    }
 }

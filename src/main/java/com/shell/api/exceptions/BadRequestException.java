@@ -92,4 +92,15 @@ public class BadRequestException extends ApiException {
     private void setErrors(List<BadRequestErrMsg> errors) {
         this.errors = errors;
     }
+
+    /**
+     * Converts this BadRequestException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "BadRequestException [" + "statusCode=" + getResponseCode() + ", message="
+                + getMessage() + ", requestId=" + requestId + ", status=" + status + ", errors="
+                + errors + "]";
+    }
 }

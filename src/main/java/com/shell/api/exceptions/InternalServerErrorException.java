@@ -111,4 +111,15 @@ public class InternalServerErrorException extends ApiException {
     private void setDetails(List<String> details) {
         this.details = details;
     }
+
+    /**
+     * Converts this InternalServerErrorException into string format.
+     * @return String representation of this class
+     */
+    @Override
+    public String toString() {
+        return "InternalServerErrorException [" + "statusCode=" + getResponseCode() + ", message="
+                + getMessage() + ", requestId=" + requestId + ", status=" + status + ", errors="
+                + errors + ", details=" + details + "]";
+    }
 }

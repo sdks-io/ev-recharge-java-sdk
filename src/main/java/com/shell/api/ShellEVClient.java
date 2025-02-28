@@ -234,7 +234,7 @@ public final class ShellEVClient implements Configuration {
                 return "https://api.shell.com/ev/v1";
             }
             if (server.equals(Server.ACCESS_TOKEN_SERVER)) {
-                return "https://api.shell.com/v1/oauth";
+                return "https://api.shell.com/v2/oauth";
             }
         }
         if (environment.equals(Environment.ENVIRONMENT2)) {
@@ -242,7 +242,7 @@ public final class ShellEVClient implements Configuration {
                 return "https://api-test.shell.com/ev/v1";
             }
             if (server.equals(Server.ACCESS_TOKEN_SERVER)) {
-                return "https://api.shell.com/v1/oauth";
+                return "https://api.shell.com/v2/oauth";
             }
         }
         return "https://api.shell.com/ev/v1";
