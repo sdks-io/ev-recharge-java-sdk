@@ -11,8 +11,8 @@ Filter by Locations that have the given status
 
 | Name |
 |  --- |
-| `Available` |
-| `Occupied` |
-| `Unavailable` |
-| `Unknown` |
+| `AVAILABLE` |
+| `OCCUPIED` |
+| `UNAVAILABLE` |
+| `UNKNOWN` |
 

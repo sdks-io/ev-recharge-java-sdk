@@ -1,9 +1,9 @@
 
-# Response
+# Response V2
 
 ## Structure
 
-`Response`
+`ResponseV2`
 
 ## Fields
 
@@ -11,7 +11,7 @@
 |  --- | --- | --- | --- | --- | --- |
 | `RequestId` | `UUID` | Optional | requestId is unique identifier value that is attached to requests and messages that allow reference to a particular transaction or event chain. | UUID getRequestId() | setRequestId(UUID requestId) |
 | `Status` | `String` | Optional | status of the API call | String getStatus() | setStatus(String status) |
-| `Data` | [`List<LocationResponeObject>`](../../doc/models/location-respone-object.md) | Optional | API Response | List<LocationResponeObject> getData() | setData(List<LocationResponeObject> data) |
+| `Data` | [`List<LocationResponeObjectV2>`](../../doc/models/location-respone-object-v2.md) | Optional | API Response | List<LocationResponeObjectV2> getData() | setData(List<LocationResponeObjectV2> data) |
 
 ## Example (as JSON)
 
@@ -21,7 +21,22 @@
   "status": "SUCCESS",
   "data": [
     {
-      "uid": 74,
+      "uid": "uid0",
+      "externalId": "externalId6",
+      "coordinates": {
+        "latitude": 39.14,
+        "longitude": 36.94
+      },
+      "operatorName": "operatorName0",
+      "address": {
+        "streetAndNumber": "streetAndNumber2",
+        "postalCode": "postalCode8",
+        "city": "city6",
+        "country": "country0"
+      }
+    },
+    {
+      "uid": "uid0",
       "externalId": "externalId6",
       "coordinates": {
         "latitude": 39.14,

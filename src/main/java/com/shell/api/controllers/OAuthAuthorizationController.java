@@ -60,10 +60,10 @@ public final class OAuthAuthorizationController extends BaseController {
             final String authorization,
             final String scope,
             final Map<String, Object> fieldParameters) {
-        try { 
-            return prepareRequestTokenRequest(authorization, scope, fieldParameters).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+        try {
+            return prepareRequestTokenRequest(authorization, scope, fieldParameters).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
@@ -73,11 +73,11 @@ public final class OAuthAuthorizationController extends BaseController {
     private ApiCall<OAuthToken, ApiException> prepareRequestTokenRequest(
             final String authorization,
             final String scope,
-            final Map<String, Object> fieldParameters) throws IOException {
+            final Map<String, Object> fieldParameters) {
         return new ApiCall.Builder<OAuthToken, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
-                        .server(Server.ACCESS_TOKEN_SERVER.value())
+                        .server(Server.ENUM_DEFAULT.value())
                         .path("/token")
                         .formParam(param -> param.key("grant_type")
                                 .value("client_credentials").isRequired(false))

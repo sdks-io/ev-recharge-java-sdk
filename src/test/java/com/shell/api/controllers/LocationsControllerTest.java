@@ -13,9 +13,9 @@ import static org.junit.Assert.assertTrue;
 import com.shell.api.ApiHelper;
 import com.shell.api.ShellEVClient;
 import com.shell.api.exceptions.ApiException;
-import com.shell.api.models.GetEVLocationsAuthorizationMethodsEnum;
-import com.shell.api.models.GetEVLocationsConnectorTypesEnum;
-import com.shell.api.models.GetEVLocationsEvseStatusEnum;
+import com.shell.api.models.ConnectorTypesEnum;
+import com.shell.api.models.EvseStatusEnum;
+import com.shell.api.models.SingleLocationMarkerAuthorizationMethodsItemsEnum;
 import io.apimatic.core.utilities.TestHelper;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -55,14 +55,14 @@ public class LocationsControllerTest extends BaseControllerTest {
     }
 
     /**
-     * This API provides the list of all Shell Recharge locations. The list includes all Shell
-     * Recharge network and all locations available through our roaming partners. The end point
-     * provides flexible search criteria in order to get the list of Shell Recharge Network. The end
-     * point provides the details such as the exact location/address of the site along with the
-     * up-to-date status information of all the charging units in the site. Supported Search Options
-     * * Based on status of the Charging units. Eg : Available or Occupied * Based on available
-     * connector types. * Based on minimum Power output (in kW) available * Based on a specific
-     * charging unit ID (EVSE ID).
+     * This API Product provides the list of all public Shell Recharge locations. The list includes
+     * Shell Recharge network and locations available publicly through our roaming partners. The end
+     * point provides flexible search criteria in order to get the list of Shell Recharge Network.
+     * The end point provides the details such as the exact location/address of the site along with
+     * the up-to-date status information of all the charging units in the site. Supported Search
+     * Options * Based on status of the Charging units. Eg : Available or Occupied * Based on
+     * available connector types. * Based on minimum Power output (in kW) available * Based on a
+     * specific charging unit ID (EVSE ID) .
      * @throws Throwable exception if occurs.
      */
     @Test
@@ -70,10 +70,10 @@ public class LocationsControllerTest extends BaseControllerTest {
         // Parameters for the API call
         UUID requestId = UUID.fromString(
                 "123e4567-e89b-12d3-a456-426614174000");
-        GetEVLocationsEvseStatusEnum evseStatus = null;
-        GetEVLocationsConnectorTypesEnum connectorTypes = null;
+        EvseStatusEnum evseStatus = null;
+        ConnectorTypesEnum connectorTypes = null;
         Double connectorMinPower = null;
-        GetEVLocationsAuthorizationMethodsEnum authorizationMethods = null;
+        SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods = null;
         Boolean withOperatorName = null;
         String evseId = 
                 "NL*TNM*E01000401*0";
@@ -82,12 +82,8 @@ public class LocationsControllerTest extends BaseControllerTest {
         Integer pageNumber = null;
         Integer perPage = null;
         String updatedSince = null;
-        List<String> country = ApiHelper.deserializeArray(
-                "[\"NED\"]",
-                String[].class);
-        List<String> excludeCountry = ApiHelper.deserializeArray(
-                "[\"NED\"]",
-                String[].class);
+        List<String> country = null;
+        List<String> excludeCountry = null;
 
         // Set callback and perform API call
         try {

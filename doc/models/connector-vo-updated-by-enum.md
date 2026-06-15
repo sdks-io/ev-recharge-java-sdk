@@ -11,10 +11,10 @@ Source of the last update
 
 | Name |
 |  --- |
-| `Feed` |
-| `Admin` |
-| `TariffService` |
-| `Defaults` |
+| `FEED` |
+| `ADMIN` |
+| `TARIFFSERVICE` |
+| `DEFAULTS` |
 
 ## Example
 

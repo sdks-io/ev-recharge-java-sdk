@@ -13,7 +13,7 @@ A Marker is a place on the map that represent multiple Locations at the same spo
 |  --- | --- | --- | --- | --- | --- |
 | `MarkerType` | `String` | Required | Identifies the marker type. If it's a `MultiLocationMarker`, then the value is `MultiLocation` | String getMarkerType() | setMarkerType(String markerType) |
 | `UniqueKey` | `String` | Optional | Uniquely identifies the marker object | String getUniqueKey() | setUniqueKey(String uniqueKey) |
-| `Coordinates` | [`Coordinates`](../../doc/models/coordinates.md) | Optional | Coordinates of the Shell Recharge Site Location | Coordinates getCoordinates() | setCoordinates(Coordinates coordinates) |
+| `Coordinates` | [`Coordinates1`](../../doc/models/coordinates-1.md) | Optional | - | Coordinates1 getCoordinates() | setCoordinates(Coordinates1 coordinates) |
 | `LocationCount` | `Double` | Optional | Number of Locations that this Marker represents in the given set of bounds | Double getLocationCount() | setLocationCount(Double locationCount) |
 | `EvseCount` | `Double` | Optional | Total number of Evses in Locations that this Marker represents | Double getEvseCount() | setEvseCount(Double evseCount) |
 | `MaxPower` | `Double` | Optional | Maximum power in kW across all locations grouped in this marker (disregarding availability) | Double getMaxPower() | setMaxPower(Double maxPower) |

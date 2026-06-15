@@ -12,76 +12,73 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 
 /**
- * This is a model class for EvseVO type.
+ * This is a model class for EvseV2 type.
  */
-public class EvseVO {
-    private Integer uid;
+public class EvseV2 {
+    private String uid;
     private String externalId;
     private String evseId;
     private EvseVOStatusEnum status;
-    private List<ConnectorVO> connectors;
-    private EvseVOAuthorizationMethodsEnum authorizationMethods;
     private String updated;
-    private String deleted;
     private String physicalReference;
+    private List<ConnectorV2> connectors;
+    private List<SingleLocationMarkerAuthorizationMethodsItemsEnum> authorizationMethods;
 
     /**
      * Default constructor.
      */
-    public EvseVO() {
+    public EvseV2() {
     }
 
     /**
      * Initialization constructor.
-     * @param  uid  Integer value for uid.
+     * @param  uid  String value for uid.
      * @param  externalId  String value for externalId.
      * @param  evseId  String value for evseId.
      * @param  status  EvseVOStatusEnum value for status.
-     * @param  connectors  List of ConnectorVO value for connectors.
-     * @param  authorizationMethods  EvseVOAuthorizationMethodsEnum value for authorizationMethods.
      * @param  updated  String value for updated.
-     * @param  deleted  String value for deleted.
      * @param  physicalReference  String value for physicalReference.
+     * @param  connectors  List of ConnectorV2 value for connectors.
+     * @param  authorizationMethods  List of SingleLocationMarkerAuthorizationMethodsItemsEnum value
+     *         for authorizationMethods.
      */
-    public EvseVO(
-            Integer uid,
+    public EvseV2(
+            String uid,
             String externalId,
             String evseId,
             EvseVOStatusEnum status,
-            List<ConnectorVO> connectors,
-            EvseVOAuthorizationMethodsEnum authorizationMethods,
             String updated,
-            String deleted,
-            String physicalReference) {
+            String physicalReference,
+            List<ConnectorV2> connectors,
+            List<SingleLocationMarkerAuthorizationMethodsItemsEnum> authorizationMethods) {
         this.uid = uid;
         this.externalId = externalId;
         this.evseId = evseId;
         this.status = status;
+        this.updated = updated;
+        this.physicalReference = physicalReference;
         this.connectors = connectors;
         this.authorizationMethods = authorizationMethods;
-        this.updated = updated;
-        this.deleted = deleted;
-        this.physicalReference = physicalReference;
     }
 
     /**
      * Getter for Uid.
      * Internal identifier used to refer to single individual EVSE unit.
-     * @return Returns the Integer
+     * @return Returns the String
      */
     @JsonGetter("uid")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public Integer getUid() {
+    public String getUid() {
         return uid;
     }
 
     /**
      * Setter for Uid.
      * Internal identifier used to refer to single individual EVSE unit.
-     * @param uid Value for Integer
+     * @param uid Value for String
      */
     @JsonSetter("uid")
-    public void setUid(Integer uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
@@ -149,48 +146,6 @@ public class EvseVO {
     }
 
     /**
-     * Getter for Connectors.
-     * List of all connectors available on this EVSE unit.
-     * @return Returns the List of ConnectorVO
-     */
-    @JsonGetter("connectors")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public List<ConnectorVO> getConnectors() {
-        return connectors;
-    }
-
-    /**
-     * Setter for Connectors.
-     * List of all connectors available on this EVSE unit.
-     * @param connectors Value for List of ConnectorVO
-     */
-    @JsonSetter("connectors")
-    public void setConnectors(List<ConnectorVO> connectors) {
-        this.connectors = connectors;
-    }
-
-    /**
-     * Getter for AuthorizationMethods.
-     * Methods that can be used to Authorize sessions on this EVSE
-     * @return Returns the EvseVOAuthorizationMethodsEnum
-     */
-    @JsonGetter("authorizationMethods")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public EvseVOAuthorizationMethodsEnum getAuthorizationMethods() {
-        return authorizationMethods;
-    }
-
-    /**
-     * Setter for AuthorizationMethods.
-     * Methods that can be used to Authorize sessions on this EVSE
-     * @param authorizationMethods Value for EvseVOAuthorizationMethodsEnum
-     */
-    @JsonSetter("authorizationMethods")
-    public void setAuthorizationMethods(EvseVOAuthorizationMethodsEnum authorizationMethods) {
-        this.authorizationMethods = authorizationMethods;
-    }
-
-    /**
      * Getter for Updated.
      * ISO8601-compliant UTC datetime of the last update of the EVSE
      * @return Returns the String
@@ -209,27 +164,6 @@ public class EvseVO {
     @JsonSetter("updated")
     public void setUpdated(String updated) {
         this.updated = updated;
-    }
-
-    /**
-     * Getter for Deleted.
-     * optional ISO8601-compliant UTC deletion timestamp of the Evse
-     * @return Returns the String
-     */
-    @JsonGetter("deleted")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public String getDeleted() {
-        return deleted;
-    }
-
-    /**
-     * Setter for Deleted.
-     * optional ISO8601-compliant UTC deletion timestamp of the Evse
-     * @param deleted Value for String
-     */
-    @JsonSetter("deleted")
-    public void setDeleted(String deleted) {
-        this.deleted = deleted;
     }
 
     /**
@@ -254,21 +188,63 @@ public class EvseVO {
     }
 
     /**
-     * Converts this EvseVO into string format.
+     * Getter for Connectors.
+     * List of all connectors available on this EVSE unit.
+     * @return Returns the List of ConnectorV2
+     */
+    @JsonGetter("connectors")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public List<ConnectorV2> getConnectors() {
+        return connectors;
+    }
+
+    /**
+     * Setter for Connectors.
+     * List of all connectors available on this EVSE unit.
+     * @param connectors Value for List of ConnectorV2
+     */
+    @JsonSetter("connectors")
+    public void setConnectors(List<ConnectorV2> connectors) {
+        this.connectors = connectors;
+    }
+
+    /**
+     * Getter for AuthorizationMethods.
+     * Methods that can be used to Authorize sessions on this EVSE
+     * @return Returns the List of SingleLocationMarkerAuthorizationMethodsItemsEnum
+     */
+    @JsonGetter("authorizationMethods")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public List<SingleLocationMarkerAuthorizationMethodsItemsEnum> getAuthorizationMethods() {
+        return authorizationMethods;
+    }
+
+    /**
+     * Setter for AuthorizationMethods.
+     * Methods that can be used to Authorize sessions on this EVSE
+     * @param authorizationMethods Value for List of SingleLocationMarkerAuthorizationMethodsItemsEnum
+     */
+    @JsonSetter("authorizationMethods")
+    public void setAuthorizationMethods(List<SingleLocationMarkerAuthorizationMethodsItemsEnum> authorizationMethods) {
+        this.authorizationMethods = authorizationMethods;
+    }
+
+    /**
+     * Converts this EvseV2 into string format.
      * @return String representation of this class
      */
     @Override
     public String toString() {
-        return "EvseVO [" + "uid=" + uid + ", externalId=" + externalId + ", evseId=" + evseId
-                + ", status=" + status + ", connectors=" + connectors + ", authorizationMethods="
-                + authorizationMethods + ", updated=" + updated + ", deleted=" + deleted
-                + ", physicalReference=" + physicalReference + "]";
+        return "EvseV2 [" + "uid=" + uid + ", externalId=" + externalId + ", evseId=" + evseId
+                + ", status=" + status + ", updated=" + updated + ", physicalReference="
+                + physicalReference + ", connectors=" + connectors + ", authorizationMethods="
+                + authorizationMethods + "]";
     }
 
     /**
-     * Builds a new {@link EvseVO.Builder} object.
+     * Builds a new {@link EvseV2.Builder} object.
      * Creates the instance with the state of the current model.
-     * @return a new {@link EvseVO.Builder} object
+     * @return a new {@link EvseV2.Builder} object
      */
     public Builder toBuilder() {
         Builder builder = new Builder()
@@ -276,36 +252,34 @@ public class EvseVO {
                 .externalId(getExternalId())
                 .evseId(getEvseId())
                 .status(getStatus())
-                .connectors(getConnectors())
-                .authorizationMethods(getAuthorizationMethods())
                 .updated(getUpdated())
-                .deleted(getDeleted())
-                .physicalReference(getPhysicalReference());
+                .physicalReference(getPhysicalReference())
+                .connectors(getConnectors())
+                .authorizationMethods(getAuthorizationMethods());
         return builder;
     }
 
     /**
-     * Class to build instances of {@link EvseVO}.
+     * Class to build instances of {@link EvseV2}.
      */
     public static class Builder {
-        private Integer uid;
+        private String uid;
         private String externalId;
         private String evseId;
         private EvseVOStatusEnum status;
-        private List<ConnectorVO> connectors;
-        private EvseVOAuthorizationMethodsEnum authorizationMethods;
         private String updated;
-        private String deleted;
         private String physicalReference;
+        private List<ConnectorV2> connectors;
+        private List<SingleLocationMarkerAuthorizationMethodsItemsEnum> authorizationMethods;
 
 
 
         /**
          * Setter for uid.
-         * @param  uid  Integer value for uid.
+         * @param  uid  String value for uid.
          * @return Builder
          */
-        public Builder uid(Integer uid) {
+        public Builder uid(String uid) {
             this.uid = uid;
             return this;
         }
@@ -341,43 +315,12 @@ public class EvseVO {
         }
 
         /**
-         * Setter for connectors.
-         * @param  connectors  List of ConnectorVO value for connectors.
-         * @return Builder
-         */
-        public Builder connectors(List<ConnectorVO> connectors) {
-            this.connectors = connectors;
-            return this;
-        }
-
-        /**
-         * Setter for authorizationMethods.
-         * @param  authorizationMethods  EvseVOAuthorizationMethodsEnum value for
-         *         authorizationMethods.
-         * @return Builder
-         */
-        public Builder authorizationMethods(EvseVOAuthorizationMethodsEnum authorizationMethods) {
-            this.authorizationMethods = authorizationMethods;
-            return this;
-        }
-
-        /**
          * Setter for updated.
          * @param  updated  String value for updated.
          * @return Builder
          */
         public Builder updated(String updated) {
             this.updated = updated;
-            return this;
-        }
-
-        /**
-         * Setter for deleted.
-         * @param  deleted  String value for deleted.
-         * @return Builder
-         */
-        public Builder deleted(String deleted) {
-            this.deleted = deleted;
             return this;
         }
 
@@ -392,12 +335,34 @@ public class EvseVO {
         }
 
         /**
-         * Builds a new {@link EvseVO} object using the set fields.
-         * @return {@link EvseVO}
+         * Setter for connectors.
+         * @param  connectors  List of ConnectorV2 value for connectors.
+         * @return Builder
          */
-        public EvseVO build() {
-            return new EvseVO(uid, externalId, evseId, status, connectors, authorizationMethods,
-                    updated, deleted, physicalReference);
+        public Builder connectors(List<ConnectorV2> connectors) {
+            this.connectors = connectors;
+            return this;
+        }
+
+        /**
+         * Setter for authorizationMethods.
+         * @param  authorizationMethods  List of SingleLocationMarkerAuthorizationMethodsItemsEnum
+         *         value for authorizationMethods.
+         * @return Builder
+         */
+        public Builder authorizationMethods(
+                List<SingleLocationMarkerAuthorizationMethodsItemsEnum> authorizationMethods) {
+            this.authorizationMethods = authorizationMethods;
+            return this;
+        }
+
+        /**
+         * Builds a new {@link EvseV2} object using the set fields.
+         * @return {@link EvseV2}
+         */
+        public EvseV2 build() {
+            return new EvseV2(uid, externalId, evseId, status, updated, physicalReference,
+                    connectors, authorizationMethods);
         }
     }
 }

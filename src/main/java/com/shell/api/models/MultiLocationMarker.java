@@ -18,7 +18,7 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 public class MultiLocationMarker {
     private String markerType;
     private String uniqueKey;
-    private Coordinates coordinates;
+    private Coordinates1 coordinates;
     private Double locationCount;
     private Double evseCount;
     private Double maxPower;
@@ -34,7 +34,7 @@ public class MultiLocationMarker {
      * Initialization constructor.
      * @param  markerType  String value for markerType.
      * @param  uniqueKey  String value for uniqueKey.
-     * @param  coordinates  Coordinates value for coordinates.
+     * @param  coordinates  Coordinates1 value for coordinates.
      * @param  locationCount  Double value for locationCount.
      * @param  evseCount  Double value for evseCount.
      * @param  maxPower  Double value for maxPower.
@@ -43,7 +43,7 @@ public class MultiLocationMarker {
     public MultiLocationMarker(
             String markerType,
             String uniqueKey,
-            Coordinates coordinates,
+            Coordinates1 coordinates,
             Double locationCount,
             Double evseCount,
             Double maxPower,
@@ -112,22 +112,20 @@ public class MultiLocationMarker {
 
     /**
      * Getter for Coordinates.
-     * Coordinates of the Shell Recharge Site Location
-     * @return Returns the Coordinates
+     * @return Returns the Coordinates1
      */
     @JsonGetter("coordinates")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public Coordinates getCoordinates() {
+    public Coordinates1 getCoordinates() {
         return coordinates;
     }
 
     /**
      * Setter for Coordinates.
-     * Coordinates of the Shell Recharge Site Location
-     * @param coordinates Value for Coordinates
+     * @param coordinates Value for Coordinates1
      */
     @JsonSetter("coordinates")
-    public void setCoordinates(Coordinates coordinates) {
+    public void setCoordinates(Coordinates1 coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -249,7 +247,7 @@ public class MultiLocationMarker {
     public static class Builder {
         private String markerType;
         private String uniqueKey;
-        private Coordinates coordinates;
+        private Coordinates1 coordinates;
         private Double locationCount;
         private Double evseCount;
         private Double maxPower;
@@ -291,10 +289,10 @@ public class MultiLocationMarker {
 
         /**
          * Setter for coordinates.
-         * @param  coordinates  Coordinates value for coordinates.
+         * @param  coordinates  Coordinates1 value for coordinates.
          * @return Builder
          */
-        public Builder coordinates(Coordinates coordinates) {
+        public Builder coordinates(Coordinates1 coordinates) {
             this.coordinates = coordinates;
             return this;
         }

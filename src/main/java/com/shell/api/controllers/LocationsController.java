@@ -16,12 +16,12 @@ import com.shell.api.exceptions.ServiceunavailableException;
 import com.shell.api.exceptions.TooManyRequestsException;
 import com.shell.api.exceptions.UnauthorizedException;
 import com.shell.api.http.request.HttpMethod;
-import com.shell.api.models.GetEVLocationsAuthorizationMethodsEnum;
-import com.shell.api.models.GetEVLocationsConnectorTypesEnum;
-import com.shell.api.models.GetEVLocationsEvseStatusEnum;
-import com.shell.api.models.NearbyLocationsConnectorTypesEnum;
-import com.shell.api.models.Response;
-import com.shell.api.models.SingleLocationMarkerResponse;
+import com.shell.api.models.ConnectorTypesEnum;
+import com.shell.api.models.EvseStatusEnum;
+import com.shell.api.models.ResponseV2;
+import com.shell.api.models.SearchByIdResponse;
+import com.shell.api.models.SingleLocationMarkerAuthorizationMethodsItemsEnum;
+import com.shell.api.models.SingleLocationMarkerResponseV2;
 import io.apimatic.core.ApiCall;
 import io.apimatic.core.ErrorCase;
 import io.apimatic.core.GlobalConfiguration;
@@ -45,14 +45,14 @@ public final class LocationsController extends BaseController {
     }
 
     /**
-     * This API provides the list of all Shell Recharge locations. The list includes all Shell
-     * Recharge network and all locations available through our roaming partners. The end point
-     * provides flexible search criteria in order to get the list of Shell Recharge Network. The end
-     * point provides the details such as the exact location/address of the site along with the
-     * up-to-date status information of all the charging units in the site. Supported Search Options
-     * * Based on status of the Charging units. Eg : Available or Occupied * Based on available
-     * connector types. * Based on minimum Power output (in kW) available * Based on a specific
-     * charging unit ID (EVSE ID).
+     * This API Product provides the list of all public Shell Recharge locations. The list includes
+     * Shell Recharge network and locations available publicly through our roaming partners. The end
+     * point provides flexible search criteria in order to get the list of Shell Recharge Network.
+     * The end point provides the details such as the exact location/address of the site along with
+     * the up-to-date status information of all the charging units in the site. Supported Search
+     * Options * Based on status of the Charging units. Eg : Available or Occupied * Based on
+     * available connector types. * Based on minimum Power output (in kW) available * Based on a
+     * specific charging unit ID (EVSE ID).
      * @param  requestId  Required parameter: RequestId must be unique identifier value that can be
      *         used by the consumer to correlate each request /response .&lt;br&gt;Format.&lt;br&gt;
      *         Its canonical textual representation, the 16 octets of a UUID are represented as 32
@@ -81,16 +81,16 @@ public final class LocationsController extends BaseController {
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
      * @param  excludeCountry  Optional parameter: Filter by Locations that are not in one of the
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
-     * @return    Returns the Response response from the API call
+     * @return    Returns the ResponseV2 response from the API call
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public Response getEVLocations(
+    public ResponseV2 getEVLocations(
             final UUID requestId,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final GetEVLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final String evseId,
             final String locationExternalId,
@@ -107,14 +107,14 @@ public final class LocationsController extends BaseController {
     }
 
     /**
-     * This API provides the list of all Shell Recharge locations. The list includes all Shell
-     * Recharge network and all locations available through our roaming partners. The end point
-     * provides flexible search criteria in order to get the list of Shell Recharge Network. The end
-     * point provides the details such as the exact location/address of the site along with the
-     * up-to-date status information of all the charging units in the site. Supported Search Options
-     * * Based on status of the Charging units. Eg : Available or Occupied * Based on available
-     * connector types. * Based on minimum Power output (in kW) available * Based on a specific
-     * charging unit ID (EVSE ID).
+     * This API Product provides the list of all public Shell Recharge locations. The list includes
+     * Shell Recharge network and locations available publicly through our roaming partners. The end
+     * point provides flexible search criteria in order to get the list of Shell Recharge Network.
+     * The end point provides the details such as the exact location/address of the site along with
+     * the up-to-date status information of all the charging units in the site. Supported Search
+     * Options * Based on status of the Charging units. Eg : Available or Occupied * Based on
+     * available connector types. * Based on minimum Power output (in kW) available * Based on a
+     * specific charging unit ID (EVSE ID).
      * @param  requestId  Required parameter: RequestId must be unique identifier value that can be
      *         used by the consumer to correlate each request /response .&lt;br&gt;Format.&lt;br&gt;
      *         Its canonical textual representation, the 16 octets of a UUID are represented as 32
@@ -143,14 +143,14 @@ public final class LocationsController extends BaseController {
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
      * @param  excludeCountry  Optional parameter: Filter by Locations that are not in one of the
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
-     * @return    Returns the Response response from the API call
+     * @return    Returns the ResponseV2 response from the API call
      */
-    public CompletableFuture<Response> getEVLocationsAsync(
+    public CompletableFuture<ResponseV2> getEVLocationsAsync(
             final UUID requestId,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final GetEVLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final String evseId,
             final String locationExternalId,
@@ -160,24 +160,24 @@ public final class LocationsController extends BaseController {
             final String updatedSince,
             final List<String> country,
             final List<String> excludeCountry) {
-        try { 
+        try {
             return prepareGetEVLocationsRequest(requestId, evseStatus, connectorTypes, connectorMinPower,
             authorizationMethods, withOperatorName, evseId, locationExternalId, evseExternalId,
-            pageNumber, perPage, updatedSince, country, excludeCountry).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+            pageNumber, perPage, updatedSince, country, excludeCountry).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
     /**
      * Builds the ApiCall object for getEVLocations.
      */
-    private ApiCall<Response, ApiException> prepareGetEVLocationsRequest(
+    private ApiCall<ResponseV2, ApiException> prepareGetEVLocationsRequest(
             final UUID requestId,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final GetEVLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final String evseId,
             final String locationExternalId,
@@ -186,12 +186,12 @@ public final class LocationsController extends BaseController {
             final Integer perPage,
             final String updatedSince,
             final List<String> country,
-            final List<String> excludeCountry) throws IOException {
-        return new ApiCall.Builder<Response, ApiException>()
+            final List<String> excludeCountry) {
+        return new ApiCall.Builder<ResponseV2, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations")
+                        .path("/v2/locations")
                         .queryParam(param -> param.key("evseStatus")
                                 .value((evseStatus != null) ? evseStatus.value() : null).isRequired(false))
                         .queryParam(param -> param.key("connectorTypes")
@@ -219,14 +219,14 @@ public final class LocationsController extends BaseController {
                         .queryParam(param -> param.key("excludeCountry")
                                 .value(excludeCountry).isRequired(false))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("BearerAuth"))
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
-                                response -> ApiHelper.deserialize(response, Response.class))
+                                response -> ApiHelper.deserialize(response, ResponseV2.class))
                         .nullify404(false)
                         .localErrorCase("400",
                                  ErrorCase.setReason("The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
@@ -261,14 +261,14 @@ public final class LocationsController extends BaseController {
      *         form 8-4-4-4-12 for a total of 36 characters (32 hexadecimal characters and 4
      *         hyphens) &lt;br&gt;
      * @param  id  Required parameter: Unique Uid of the location from List of locations API
-     * @param  providerId  Optional parameter: The provider id that you wish to see locations and
-     *         tariffs for
+     * @param  providerId  Optional parameter: ProviderId is mandatory in order to get the tariff
+     *         information as part of API response.
      * @param  since  Optional parameter: to get the locations modified after a date
-     * @return    Returns the Response response from the API call
+     * @return    Returns the SearchByIdResponse response from the API call
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public Response evLocationsByID(
+    public SearchByIdResponse evLocationsByID(
             final UUID requestId,
             final String id,
             final String providerId,
@@ -287,36 +287,36 @@ public final class LocationsController extends BaseController {
      *         form 8-4-4-4-12 for a total of 36 characters (32 hexadecimal characters and 4
      *         hyphens) &lt;br&gt;
      * @param  id  Required parameter: Unique Uid of the location from List of locations API
-     * @param  providerId  Optional parameter: The provider id that you wish to see locations and
-     *         tariffs for
+     * @param  providerId  Optional parameter: ProviderId is mandatory in order to get the tariff
+     *         information as part of API response.
      * @param  since  Optional parameter: to get the locations modified after a date
-     * @return    Returns the Response response from the API call
+     * @return    Returns the SearchByIdResponse response from the API call
      */
-    public CompletableFuture<Response> evLocationsByIDAsync(
+    public CompletableFuture<SearchByIdResponse> evLocationsByIDAsync(
             final UUID requestId,
             final String id,
             final String providerId,
             final String since) {
-        try { 
-            return prepareEvLocationsByIDRequest(requestId, id, providerId, since).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+        try {
+            return prepareEvLocationsByIDRequest(requestId, id, providerId, since).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
     /**
      * Builds the ApiCall object for evLocationsByID.
      */
-    private ApiCall<Response, ApiException> prepareEvLocationsByIDRequest(
+    private ApiCall<SearchByIdResponse, ApiException> prepareEvLocationsByIDRequest(
             final UUID requestId,
             final String id,
             final String providerId,
-            final String since) throws IOException {
-        return new ApiCall.Builder<Response, ApiException>()
+            final String since) {
+        return new ApiCall.Builder<SearchByIdResponse, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations/{id}")
+                        .path("/v2/locations/{id}")
                         .queryParam(param -> param.key("providerId")
                                 .value(providerId).isRequired(false))
                         .queryParam(param -> param.key("since")
@@ -324,14 +324,14 @@ public final class LocationsController extends BaseController {
                         .templateParam(param -> param.key("id").value(id)
                                 .shouldEncode(true))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("BearerAuth"))
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
-                                response -> ApiHelper.deserialize(response, Response.class))
+                                response -> ApiHelper.deserialize(response, SearchByIdResponse.class))
                         .nullify404(false)
                         .localErrorCase("400",
                                  ErrorCase.setReason("The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
@@ -395,11 +395,11 @@ public final class LocationsController extends BaseController {
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
      * @param  excludeCountry  Optional parameter: Filter by Locations that are not in one of the
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
-     * @return    Returns the Response response from the API call
+     * @return    Returns the ResponseV2 response from the API call
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public Response nearbyLocations(
+    public ResponseV2 nearbyLocations(
             final UUID requestId,
             final double latitude,
             final double longitude,
@@ -408,10 +408,10 @@ public final class LocationsController extends BaseController {
             final String evseId,
             final String evseExternalId,
             final String operatorName,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final NearbyLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final List<String> country,
@@ -462,9 +462,9 @@ public final class LocationsController extends BaseController {
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
      * @param  excludeCountry  Optional parameter: Filter by Locations that are not in one of the
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
-     * @return    Returns the Response response from the API call
+     * @return    Returns the ResponseV2 response from the API call
      */
-    public CompletableFuture<Response> nearbyLocationsAsync(
+    public CompletableFuture<ResponseV2> nearbyLocationsAsync(
             final UUID requestId,
             final double latitude,
             final double longitude,
@@ -473,28 +473,28 @@ public final class LocationsController extends BaseController {
             final String evseId,
             final String evseExternalId,
             final String operatorName,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final NearbyLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final List<String> country,
             final List<String> excludeCountry) {
-        try { 
+        try {
             return prepareNearbyLocationsRequest(requestId, latitude, longitude, limit, locationExternalId,
             evseId, evseExternalId, operatorName, evseStatus, connectorTypes, connectorMinPower,
             authorizationMethods, withOperatorName, withMaxPower, country,
-            excludeCountry).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+            excludeCountry).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
     /**
      * Builds the ApiCall object for nearbyLocations.
      */
-    private ApiCall<Response, ApiException> prepareNearbyLocationsRequest(
+    private ApiCall<ResponseV2, ApiException> prepareNearbyLocationsRequest(
             final UUID requestId,
             final double latitude,
             final double longitude,
@@ -503,19 +503,19 @@ public final class LocationsController extends BaseController {
             final String evseId,
             final String evseExternalId,
             final String operatorName,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final NearbyLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final List<String> country,
-            final List<String> excludeCountry) throws IOException {
-        return new ApiCall.Builder<Response, ApiException>()
+            final List<String> excludeCountry) {
+        return new ApiCall.Builder<ResponseV2, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations/nearby")
+                        .path("/v2/locations/nearby")
                         .queryParam(param -> param.key("latitude")
                                 .value(latitude).isRequired(false))
                         .queryParam(param -> param.key("longitude")
@@ -547,14 +547,14 @@ public final class LocationsController extends BaseController {
                         .queryParam(param -> param.key("excludeCountry")
                                 .value(excludeCountry).isRequired(false))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("BearerAuth"))
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
-                                response -> ApiHelper.deserialize(response, Response.class))
+                                response -> ApiHelper.deserialize(response, ResponseV2.class))
                         .nullify404(false)
                         .localErrorCase("400",
                                  ErrorCase.setReason("The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",
@@ -624,21 +624,21 @@ public final class LocationsController extends BaseController {
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
      * @param  excludeCountry  Optional parameter: Filter by Locations that are not in one of the
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
-     * @return    Returns the SingleLocationMarkerResponse response from the API call
+     * @return    Returns the SingleLocationMarkerResponseV2 response from the API call
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
      */
-    public SingleLocationMarkerResponse locationsMarkers(
+    public SingleLocationMarkerResponseV2 locationsMarkers(
             final UUID requestId,
             final double west,
             final double south,
             final double east,
             final double north,
             final String zoom,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final GetEVLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final String locationExternalId,
@@ -699,19 +699,19 @@ public final class LocationsController extends BaseController {
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
      * @param  excludeCountry  Optional parameter: Filter by Locations that are not in one of the
      *         given countries (specified using ISO 3166-1 alpha-3 codes)
-     * @return    Returns the SingleLocationMarkerResponse response from the API call
+     * @return    Returns the SingleLocationMarkerResponseV2 response from the API call
      */
-    public CompletableFuture<SingleLocationMarkerResponse> locationsMarkersAsync(
+    public CompletableFuture<SingleLocationMarkerResponseV2> locationsMarkersAsync(
             final UUID requestId,
             final double west,
             final double south,
             final double east,
             final double north,
             final String zoom,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final GetEVLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final String locationExternalId,
@@ -720,30 +720,30 @@ public final class LocationsController extends BaseController {
             final String operatorName,
             final List<String> country,
             final List<String> excludeCountry) {
-        try { 
+        try {
             return prepareLocationsMarkersRequest(requestId, west, south, east, north, zoom, evseStatus,
             connectorTypes, connectorMinPower, authorizationMethods, withOperatorName, withMaxPower,
             locationExternalId, evseId, evseExternalId, operatorName, country,
-            excludeCountry).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+            excludeCountry).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
     /**
      * Builds the ApiCall object for locationsMarkers.
      */
-    private ApiCall<SingleLocationMarkerResponse, ApiException> prepareLocationsMarkersRequest(
+    private ApiCall<SingleLocationMarkerResponseV2, ApiException> prepareLocationsMarkersRequest(
             final UUID requestId,
             final double west,
             final double south,
             final double east,
             final double north,
             final String zoom,
-            final GetEVLocationsEvseStatusEnum evseStatus,
-            final GetEVLocationsConnectorTypesEnum connectorTypes,
+            final EvseStatusEnum evseStatus,
+            final ConnectorTypesEnum connectorTypes,
             final Double connectorMinPower,
-            final GetEVLocationsAuthorizationMethodsEnum authorizationMethods,
+            final SingleLocationMarkerAuthorizationMethodsItemsEnum authorizationMethods,
             final Boolean withOperatorName,
             final Boolean withMaxPower,
             final String locationExternalId,
@@ -751,12 +751,12 @@ public final class LocationsController extends BaseController {
             final String evseExternalId,
             final String operatorName,
             final List<String> country,
-            final List<String> excludeCountry) throws IOException {
-        return new ApiCall.Builder<SingleLocationMarkerResponse, ApiException>()
+            final List<String> excludeCountry) {
+        return new ApiCall.Builder<SingleLocationMarkerResponseV2, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/locations/markers")
+                        .path("/v2/locations/markers")
                         .queryParam(param -> param.key("west")
                                 .value(west).isRequired(false))
                         .queryParam(param -> param.key("south")
@@ -792,14 +792,14 @@ public final class LocationsController extends BaseController {
                         .queryParam(param -> param.key("excludeCountry")
                                 .value(excludeCountry).isRequired(false))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("BearerAuth"))
                         .httpMethod(HttpMethod.GET))
                 .responseHandler(responseHandler -> responseHandler
                         .deserializer(
-                                response -> ApiHelper.deserialize(response, SingleLocationMarkerResponse.class))
+                                response -> ApiHelper.deserialize(response, SingleLocationMarkerResponseV2.class))
                         .nullify404(false)
                         .localErrorCase("400",
                                  ErrorCase.setReason("The server cannot or will not process the request due to something that is perceived to be a client error (e.g., malformed request syntax, invalid request message framing, or deceptive request routing).",

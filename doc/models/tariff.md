@@ -14,7 +14,7 @@
 | `PerKWh` | `Double` | Optional | Tariff per kWh of energy consumed | Double getPerKWh() | setPerKWh(Double perKWh) |
 | `Currency` | `String` | Optional | ISO 4217 Currency Code of the local currency. | String getCurrency() | setCurrency(String currency) |
 | `Updated` | `String` | Optional | ISO8601-compliant UTC datetime of the last update of the Tariff | String getUpdated() | setUpdated(String updated) |
-| `UpdatedBy` | [`TariffVOUpdatedByEnum`](../../doc/models/tariff-vo-updated-by-enum.md) | Optional | - | TariffVOUpdatedByEnum getUpdatedBy() | setUpdatedBy(TariffVOUpdatedByEnum updatedBy) |
+| `UpdatedBy` | [`TariffVOUpdatedByEnum`](../../doc/models/tariff-vo-updated-by-enum.md) | Optional | Source of the last update of the tariff details | TariffVOUpdatedByEnum getUpdatedBy() | setUpdatedBy(TariffVOUpdatedByEnum updatedBy) |
 | `Structure` | `String` | Optional | Tariff structure that this tariff belongs to, typically Default unless specific tariff is defined for provider | String getStructure() | setStructure(String structure) |
 
 ## Example (as JSON)
@@ -26,6 +26,7 @@
   "perKWh": 0.89,
   "currency": "EUR",
   "updated": "07/06/2021 10:44:24",
+  "updatedBy": "TariffService",
   "structure": "default"
 }
 ```

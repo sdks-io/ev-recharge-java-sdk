@@ -9,8 +9,8 @@
 
 | Name | Type | Tags | Description | Getter | Setter |
 |  --- | --- | --- | --- | --- | --- |
-| `EvChargeNumber` | `String` | Required | Ev charge number<br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` | String getEvChargeNumber() | setEvChargeNumber(String evChargeNumber) |
-| `EvseId` | `String` | Required | This is the Electric Vehicle EquipmentID<br>**Constraints**: *Minimum Length*: `18`, *Maximum Length*: `36` | String getEvseId() | setEvseId(String evseId) |
+| `EvChargeNumber` | `String` | Required | Ev charge number<br><br>**Constraints**: *Minimum Length*: `1`, *Maximum Length*: `50` | String getEvChargeNumber() | setEvChargeNumber(String evChargeNumber) |
+| `EvseId` | `String` | Required | This is the Electric Vehicle EquipmentID<br><br>**Constraints**: *Minimum Length*: `18`, *Maximum Length*: `36` | String getEvseId() | setEvseId(String evseId) |
 
 ## Example (as JSON)
 

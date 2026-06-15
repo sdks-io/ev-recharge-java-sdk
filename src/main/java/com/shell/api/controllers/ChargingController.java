@@ -6,16 +6,17 @@
 
 package com.shell.api.controllers;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.shell.api.ApiHelper;
 import com.shell.api.Server;
 import com.shell.api.exceptions.ApiException;
 import com.shell.api.exceptions.BadRequestException;
 import com.shell.api.exceptions.InternalServerErrorException;
-import com.shell.api.exceptions.NotFoundException;
 import com.shell.api.exceptions.ServiceunavailableException;
 import com.shell.api.exceptions.TooManyRequestsException;
 import com.shell.api.exceptions.UnauthorizedException;
+import com.shell.api.exceptions.V2ChargeSessionRetrieve404ErrorException;
+import com.shell.api.exceptions.V2ChargeSessionStart404ErrorException;
+import com.shell.api.exceptions.V2ChargeSessionStop404ErrorException;
 import com.shell.api.http.request.HttpMethod;
 import com.shell.api.models.ActiveResponse200Json;
 import com.shell.api.models.ChargesessionStartBody;
@@ -51,7 +52,7 @@ public final class ChargingController extends BaseController {
      *         hexadecimal (base-16) digits, displayed in five groups separated by hyphens, in the
      *         form 8-4-4-4-12 for a total of 36 characters (32 hexadecimal characters and 4
      *         hyphens) &lt;br&gt;
-     * @param  body  Optional parameter: Example:
+     * @param  body  Optional parameter:
      * @return    Returns the InlineResponse202 response from the API call
      * @throws    ApiException    Represents error response from the server.
      * @throws    IOException    Signals that an I/O exception of some sort has occurred.
@@ -70,16 +71,16 @@ public final class ChargingController extends BaseController {
      *         hexadecimal (base-16) digits, displayed in five groups separated by hyphens, in the
      *         form 8-4-4-4-12 for a total of 36 characters (32 hexadecimal characters and 4
      *         hyphens) &lt;br&gt;
-     * @param  body  Optional parameter: Example:
+     * @param  body  Optional parameter:
      * @return    Returns the InlineResponse202 response from the API call
      */
     public CompletableFuture<InlineResponse202> startAsync(
             final UUID requestId,
             final ChargesessionStartBody body) {
-        try { 
-            return prepareStartRequest(requestId, body).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+        try {
+            return prepareStartRequest(requestId, body).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
@@ -88,16 +89,16 @@ public final class ChargingController extends BaseController {
      */
     private ApiCall<InlineResponse202, ApiException> prepareStartRequest(
             final UUID requestId,
-            final ChargesessionStartBody body) throws JsonProcessingException, IOException {
+            final ChargesessionStartBody body) {
         return new ApiCall.Builder<InlineResponse202, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/charge-session/start")
+                        .path("/v2/charge-session/start")
                         .bodyParam(param -> param.value(body).isRequired(false))
                         .bodySerializer(() ->  ApiHelper.serialize(body))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("Content-Type")
                                 .value("application/json").isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
@@ -116,7 +117,7 @@ public final class ChargingController extends BaseController {
                                 (reason, context) -> new UnauthorizedException(reason, context)))
                         .localErrorCase("404",
                                  ErrorCase.setReason("Location Not Found",
-                                (reason, context) -> new NotFoundException(reason, context)))
+                                (reason, context) -> new V2ChargeSessionStart404ErrorException(reason, context)))
                         .localErrorCase("429",
                                  ErrorCase.setReason("The Request reached maximum allocated rate limit",
                                 (reason, context) -> new TooManyRequestsException(reason, context)))
@@ -163,10 +164,10 @@ public final class ChargingController extends BaseController {
     public CompletableFuture<InlineResponse2021> stopAsync(
             final UUID requestId,
             final String sessionId) {
-        try { 
-            return prepareStopRequest(requestId, sessionId).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+        try {
+            return prepareStopRequest(requestId, sessionId).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
@@ -175,16 +176,16 @@ public final class ChargingController extends BaseController {
      */
     private ApiCall<InlineResponse2021, ApiException> prepareStopRequest(
             final UUID requestId,
-            final String sessionId) throws IOException {
+            final String sessionId) {
         return new ApiCall.Builder<InlineResponse2021, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/charge-session/stop")
+                        .path("/v2/charge-session/stop")
                         .queryParam(param -> param.key("sessionId")
                                 .value(sessionId))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("BearerAuth"))
@@ -201,7 +202,7 @@ public final class ChargingController extends BaseController {
                                 (reason, context) -> new UnauthorizedException(reason, context)))
                         .localErrorCase("404",
                                  ErrorCase.setReason("Location Not Found",
-                                (reason, context) -> new NotFoundException(reason, context)))
+                                (reason, context) -> new V2ChargeSessionStop404ErrorException(reason, context)))
                         .localErrorCase("429",
                                  ErrorCase.setReason("The Request reached maximum allocated rate limit",
                                 (reason, context) -> new TooManyRequestsException(reason, context)))
@@ -248,10 +249,10 @@ public final class ChargingController extends BaseController {
     public CompletableFuture<GetChargeSessionRetrieveResponse200Json> getChargeSessionRetrieveAsync(
             final UUID requestId,
             final String sessionId) {
-        try { 
-            return prepareGetChargeSessionRetrieveRequest(requestId, sessionId).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+        try {
+            return prepareGetChargeSessionRetrieveRequest(requestId, sessionId).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
@@ -260,16 +261,16 @@ public final class ChargingController extends BaseController {
      */
     private ApiCall<GetChargeSessionRetrieveResponse200Json, ApiException> prepareGetChargeSessionRetrieveRequest(
             final UUID requestId,
-            final String sessionId) throws IOException {
+            final String sessionId) {
         return new ApiCall.Builder<GetChargeSessionRetrieveResponse200Json, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/charge-session/retrieve")
+                        .path("/v2/charge-session/retrieve")
                         .queryParam(param -> param.key("sessionId")
                                 .value(sessionId))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("BearerAuth"))
@@ -286,7 +287,7 @@ public final class ChargingController extends BaseController {
                                 (reason, context) -> new UnauthorizedException(reason, context)))
                         .localErrorCase("404",
                                  ErrorCase.setReason("Location Not Found",
-                                (reason, context) -> new NotFoundException(reason, context)))
+                                (reason, context) -> new V2ChargeSessionRetrieve404ErrorException(reason, context)))
                         .localErrorCase("429",
                                  ErrorCase.setReason("The Request reached maximum allocated rate limit",
                                 (reason, context) -> new TooManyRequestsException(reason, context)))
@@ -333,10 +334,10 @@ public final class ChargingController extends BaseController {
     public CompletableFuture<ActiveResponse200Json> activeAsync(
             final UUID requestId,
             final String emaId) {
-        try { 
-            return prepareActiveRequest(requestId, emaId).executeAsync(); 
-        } catch (Exception e) {  
-            throw new CompletionException(e); 
+        try {
+            return prepareActiveRequest(requestId, emaId).executeAsync();
+        } catch (Exception e) {
+            throw new CompletionException(e);
         }
     }
 
@@ -345,16 +346,16 @@ public final class ChargingController extends BaseController {
      */
     private ApiCall<ActiveResponse200Json, ApiException> prepareActiveRequest(
             final UUID requestId,
-            final String emaId) throws IOException {
+            final String emaId) {
         return new ApiCall.Builder<ActiveResponse200Json, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
                         .server(Server.ENUM_DEFAULT.value())
-                        .path("/charge-session/active")
+                        .path("/v2/charge-session/active")
                         .queryParam(param -> param.key("emaId")
                                 .value(emaId))
                         .headerParam(param -> param.key("RequestId")
-                                .value(String.valueOf(requestId)).isRequired(false))
+                                .value(requestId).isRequired(false))
                         .headerParam(param -> param.key("accept").value("application/json"))
                         .withAuth(auth -> auth
                                 .add("BearerAuth"))

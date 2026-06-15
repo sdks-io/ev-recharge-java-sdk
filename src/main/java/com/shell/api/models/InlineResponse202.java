@@ -64,6 +64,7 @@ public class InlineResponse202 {
 
     /**
      * Getter for Status.
+     * Indicates overall status of the request
      * @return Returns the GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonGetter("status")
@@ -73,6 +74,7 @@ public class InlineResponse202 {
 
     /**
      * Setter for Status.
+     * Indicates overall status of the request
      * @param status Value for GetChargeSessionRetrieveResponse200JsonStatusEnum
      */
     @JsonSetter("status")

@@ -11,24 +11,24 @@ Type of the connector in the EVSE unit.
 
 | Name |
 |  --- |
-| `Avcon` |
-| `Domestic` |
-| `Industrial2PDc` |
-| `IndustrialPneAc` |
-| `Industrial3PEAc` |
-| `Industrial3PENAc` |
-| `Type1` |
-| `Type1Combo` |
-| `Type2` |
-| `Type2Combo` |
-| `Type3` |
+| `AVCON` |
+| `DOMESTIC` |
+| `INDUSTRIAL2PDC` |
+| `INDUSTRIALPNEAC` |
+| `INDUSTRIAL3PEAC` |
+| `INDUSTRIAL3PENAC` |
+| `TYPE1` |
+| `TYPE1COMBO` |
+| `TYPE2` |
+| `TYPE2COMBO` |
+| `TYPE3` |
 | `LPI` |
-| `Nema520` |
+| `NEMA520` |
 | `SAEJ1772` |
 | `SPI` |
-| `TepcoCHAdeMO` |
-| `Tesla` |
-| `Unspecified` |
+| `TEPCOCHADEMO` |
+| `TESLA` |
+| `UNSPECIFIED` |
 
 ## Example
 

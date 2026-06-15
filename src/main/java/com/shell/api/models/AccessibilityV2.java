@@ -11,28 +11,24 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 /**
- * This is a model class for Accessibility type.
+ * This is a model class for AccessibilityV2 type.
  */
-public class Accessibility {
+public class AccessibilityV2 {
     private AccessibilityStatusEnum status;
-    private String remark;
 
     /**
      * Default constructor.
      */
-    public Accessibility() {
+    public AccessibilityV2() {
     }
 
     /**
      * Initialization constructor.
      * @param  status  AccessibilityStatusEnum value for status.
-     * @param  remark  String value for remark.
      */
-    public Accessibility(
-            AccessibilityStatusEnum status,
-            String remark) {
+    public AccessibilityV2(
+            AccessibilityStatusEnum status) {
         this.status = status;
-        this.remark = remark;
     }
 
     /**
@@ -57,53 +53,30 @@ public class Accessibility {
     }
 
     /**
-     * Getter for Remark.
-     * optional Arbitrary text about restrictions of the Location
-     * @return Returns the String
-     */
-    @JsonGetter("remark")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public String getRemark() {
-        return remark;
-    }
-
-    /**
-     * Setter for Remark.
-     * optional Arbitrary text about restrictions of the Location
-     * @param remark Value for String
-     */
-    @JsonSetter("remark")
-    public void setRemark(String remark) {
-        this.remark = remark;
-    }
-
-    /**
-     * Converts this Accessibility into string format.
+     * Converts this AccessibilityV2 into string format.
      * @return String representation of this class
      */
     @Override
     public String toString() {
-        return "Accessibility [" + "status=" + status + ", remark=" + remark + "]";
+        return "AccessibilityV2 [" + "status=" + status + "]";
     }
 
     /**
-     * Builds a new {@link Accessibility.Builder} object.
+     * Builds a new {@link AccessibilityV2.Builder} object.
      * Creates the instance with the state of the current model.
-     * @return a new {@link Accessibility.Builder} object
+     * @return a new {@link AccessibilityV2.Builder} object
      */
     public Builder toBuilder() {
         Builder builder = new Builder()
-                .status(getStatus())
-                .remark(getRemark());
+                .status(getStatus());
         return builder;
     }
 
     /**
-     * Class to build instances of {@link Accessibility}.
+     * Class to build instances of {@link AccessibilityV2}.
      */
     public static class Builder {
         private AccessibilityStatusEnum status;
-        private String remark;
 
 
 
@@ -118,21 +91,11 @@ public class Accessibility {
         }
 
         /**
-         * Setter for remark.
-         * @param  remark  String value for remark.
-         * @return Builder
+         * Builds a new {@link AccessibilityV2} object using the set fields.
+         * @return {@link AccessibilityV2}
          */
-        public Builder remark(String remark) {
-            this.remark = remark;
-            return this;
-        }
-
-        /**
-         * Builds a new {@link Accessibility} object using the set fields.
-         * @return {@link Accessibility}
-         */
-        public Accessibility build() {
-            return new Accessibility(status, remark);
+        public AccessibilityV2 build() {
+            return new AccessibilityV2(status);
         }
     }
 }

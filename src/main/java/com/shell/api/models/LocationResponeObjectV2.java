@@ -12,53 +12,56 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import java.util.List;
 
 /**
- * This is a model class for LocationResponeObject type.
+ * This is a model class for LocationResponeObjectV2 type.
  */
-public class LocationResponeObject {
-    private Integer uid;
+public class LocationResponeObjectV2 {
+    private String uid;
     private String externalId;
     private Coordinates coordinates;
     private String operatorName;
     private Address address;
-    private Accessibility accessibility;
-    private List<EvseVO> evses;
+    private AccessibilityV2 accessibility;
+    private List<EvseV2> evses;
     private List<OpeningHoursObject> openingHours;
     private String updated;
-    private String operatorComment;
     private String locationType;
+    private String operatorId;
+    private Boolean openTwentyFourSeven;
 
     /**
      * Default constructor.
      */
-    public LocationResponeObject() {
+    public LocationResponeObjectV2() {
     }
 
     /**
      * Initialization constructor.
-     * @param  uid  Integer value for uid.
+     * @param  uid  String value for uid.
      * @param  externalId  String value for externalId.
      * @param  coordinates  Coordinates value for coordinates.
      * @param  operatorName  String value for operatorName.
      * @param  address  Address value for address.
-     * @param  accessibility  Accessibility value for accessibility.
-     * @param  evses  List of EvseVO value for evses.
+     * @param  accessibility  AccessibilityV2 value for accessibility.
+     * @param  evses  List of EvseV2 value for evses.
      * @param  openingHours  List of OpeningHoursObject value for openingHours.
      * @param  updated  String value for updated.
-     * @param  operatorComment  String value for operatorComment.
      * @param  locationType  String value for locationType.
+     * @param  operatorId  String value for operatorId.
+     * @param  openTwentyFourSeven  Boolean value for openTwentyFourSeven.
      */
-    public LocationResponeObject(
-            Integer uid,
+    public LocationResponeObjectV2(
+            String uid,
             String externalId,
             Coordinates coordinates,
             String operatorName,
             Address address,
-            Accessibility accessibility,
-            List<EvseVO> evses,
+            AccessibilityV2 accessibility,
+            List<EvseV2> evses,
             List<OpeningHoursObject> openingHours,
             String updated,
-            String operatorComment,
-            String locationType) {
+            String locationType,
+            String operatorId,
+            Boolean openTwentyFourSeven) {
         this.uid = uid;
         this.externalId = externalId;
         this.coordinates = coordinates;
@@ -68,28 +71,29 @@ public class LocationResponeObject {
         this.evses = evses;
         this.openingHours = openingHours;
         this.updated = updated;
-        this.operatorComment = operatorComment;
         this.locationType = locationType;
+        this.operatorId = operatorId;
+        this.openTwentyFourSeven = openTwentyFourSeven;
     }
 
     /**
      * Getter for Uid.
      * Unique Internal identifier used to refer to this Location by Shell Recharge
-     * @return Returns the Integer
+     * @return Returns the String
      */
     @JsonGetter("uid")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public Integer getUid() {
+    public String getUid() {
         return uid;
     }
 
     /**
      * Setter for Uid.
      * Unique Internal identifier used to refer to this Location by Shell Recharge
-     * @param uid Value for Integer
+     * @param uid Value for String
      */
     @JsonSetter("uid")
-    public void setUid(Integer uid) {
+    public void setUid(String uid) {
         this.uid = uid;
     }
 
@@ -180,40 +184,40 @@ public class LocationResponeObject {
     /**
      * Getter for Accessibility.
      * Accessibility of the Location
-     * @return Returns the Accessibility
+     * @return Returns the AccessibilityV2
      */
     @JsonGetter("accessibility")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public Accessibility getAccessibility() {
+    public AccessibilityV2 getAccessibility() {
         return accessibility;
     }
 
     /**
      * Setter for Accessibility.
      * Accessibility of the Location
-     * @param accessibility Value for Accessibility
+     * @param accessibility Value for AccessibilityV2
      */
     @JsonSetter("accessibility")
-    public void setAccessibility(Accessibility accessibility) {
+    public void setAccessibility(AccessibilityV2 accessibility) {
         this.accessibility = accessibility;
     }
 
     /**
      * Getter for Evses.
-     * @return Returns the List of EvseVO
+     * @return Returns the List of EvseV2
      */
     @JsonGetter("evses")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public List<EvseVO> getEvses() {
+    public List<EvseV2> getEvses() {
         return evses;
     }
 
     /**
      * Setter for Evses.
-     * @param evses Value for List of EvseVO
+     * @param evses Value for List of EvseV2
      */
     @JsonSetter("evses")
-    public void setEvses(List<EvseVO> evses) {
+    public void setEvses(List<EvseV2> evses) {
         this.evses = evses;
     }
 
@@ -260,27 +264,6 @@ public class LocationResponeObject {
     }
 
     /**
-     * Getter for OperatorComment.
-     * optional Operator-wide arbitrary text (eg promotional, warning)
-     * @return Returns the String
-     */
-    @JsonGetter("operatorComment")
-    @JsonInclude(JsonInclude.Include.NON_NULL)
-    public String getOperatorComment() {
-        return operatorComment;
-    }
-
-    /**
-     * Setter for OperatorComment.
-     * optional Operator-wide arbitrary text (eg promotional, warning)
-     * @param operatorComment Value for String
-     */
-    @JsonSetter("operatorComment")
-    public void setOperatorComment(String operatorComment) {
-        this.operatorComment = operatorComment;
-    }
-
-    /**
      * Getter for LocationType.
      * the type of the location. Could be "UNKNOWN".
      * @return Returns the String
@@ -302,22 +285,65 @@ public class LocationResponeObject {
     }
 
     /**
-     * Converts this LocationResponeObject into string format.
+     * Getter for OperatorId.
+     * Unique Id of the operator
+     * @return Returns the String
+     */
+    @JsonGetter("operatorId")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public String getOperatorId() {
+        return operatorId;
+    }
+
+    /**
+     * Setter for OperatorId.
+     * Unique Id of the operator
+     * @param operatorId Value for String
+     */
+    @JsonSetter("operatorId")
+    public void setOperatorId(String operatorId) {
+        this.operatorId = operatorId;
+    }
+
+    /**
+     * Getter for OpenTwentyFourSeven.
+     * Whether the location is open 24/7
+     * @return Returns the Boolean
+     */
+    @JsonGetter("openTwentyFourSeven")
+    @JsonInclude(JsonInclude.Include.NON_NULL)
+    public Boolean getOpenTwentyFourSeven() {
+        return openTwentyFourSeven;
+    }
+
+    /**
+     * Setter for OpenTwentyFourSeven.
+     * Whether the location is open 24/7
+     * @param openTwentyFourSeven Value for Boolean
+     */
+    @JsonSetter("openTwentyFourSeven")
+    public void setOpenTwentyFourSeven(Boolean openTwentyFourSeven) {
+        this.openTwentyFourSeven = openTwentyFourSeven;
+    }
+
+    /**
+     * Converts this LocationResponeObjectV2 into string format.
      * @return String representation of this class
      */
     @Override
     public String toString() {
-        return "LocationResponeObject [" + "uid=" + uid + ", externalId=" + externalId
+        return "LocationResponeObjectV2 [" + "uid=" + uid + ", externalId=" + externalId
                 + ", coordinates=" + coordinates + ", operatorName=" + operatorName + ", address="
                 + address + ", accessibility=" + accessibility + ", evses=" + evses
-                + ", openingHours=" + openingHours + ", updated=" + updated + ", operatorComment="
-                + operatorComment + ", locationType=" + locationType + "]";
+                + ", openingHours=" + openingHours + ", updated=" + updated + ", locationType="
+                + locationType + ", operatorId=" + operatorId + ", openTwentyFourSeven="
+                + openTwentyFourSeven + "]";
     }
 
     /**
-     * Builds a new {@link LocationResponeObject.Builder} object.
+     * Builds a new {@link LocationResponeObjectV2.Builder} object.
      * Creates the instance with the state of the current model.
-     * @return a new {@link LocationResponeObject.Builder} object
+     * @return a new {@link LocationResponeObjectV2.Builder} object
      */
     public Builder toBuilder() {
         Builder builder = new Builder()
@@ -330,35 +356,37 @@ public class LocationResponeObject {
                 .evses(getEvses())
                 .openingHours(getOpeningHours())
                 .updated(getUpdated())
-                .operatorComment(getOperatorComment())
-                .locationType(getLocationType());
+                .locationType(getLocationType())
+                .operatorId(getOperatorId())
+                .openTwentyFourSeven(getOpenTwentyFourSeven());
         return builder;
     }
 
     /**
-     * Class to build instances of {@link LocationResponeObject}.
+     * Class to build instances of {@link LocationResponeObjectV2}.
      */
     public static class Builder {
-        private Integer uid;
+        private String uid;
         private String externalId;
         private Coordinates coordinates;
         private String operatorName;
         private Address address;
-        private Accessibility accessibility;
-        private List<EvseVO> evses;
+        private AccessibilityV2 accessibility;
+        private List<EvseV2> evses;
         private List<OpeningHoursObject> openingHours;
         private String updated;
-        private String operatorComment;
         private String locationType;
+        private String operatorId;
+        private Boolean openTwentyFourSeven;
 
 
 
         /**
          * Setter for uid.
-         * @param  uid  Integer value for uid.
+         * @param  uid  String value for uid.
          * @return Builder
          */
-        public Builder uid(Integer uid) {
+        public Builder uid(String uid) {
             this.uid = uid;
             return this;
         }
@@ -405,20 +433,20 @@ public class LocationResponeObject {
 
         /**
          * Setter for accessibility.
-         * @param  accessibility  Accessibility value for accessibility.
+         * @param  accessibility  AccessibilityV2 value for accessibility.
          * @return Builder
          */
-        public Builder accessibility(Accessibility accessibility) {
+        public Builder accessibility(AccessibilityV2 accessibility) {
             this.accessibility = accessibility;
             return this;
         }
 
         /**
          * Setter for evses.
-         * @param  evses  List of EvseVO value for evses.
+         * @param  evses  List of EvseV2 value for evses.
          * @return Builder
          */
-        public Builder evses(List<EvseVO> evses) {
+        public Builder evses(List<EvseV2> evses) {
             this.evses = evses;
             return this;
         }
@@ -444,16 +472,6 @@ public class LocationResponeObject {
         }
 
         /**
-         * Setter for operatorComment.
-         * @param  operatorComment  String value for operatorComment.
-         * @return Builder
-         */
-        public Builder operatorComment(String operatorComment) {
-            this.operatorComment = operatorComment;
-            return this;
-        }
-
-        /**
          * Setter for locationType.
          * @param  locationType  String value for locationType.
          * @return Builder
@@ -464,12 +482,33 @@ public class LocationResponeObject {
         }
 
         /**
-         * Builds a new {@link LocationResponeObject} object using the set fields.
-         * @return {@link LocationResponeObject}
+         * Setter for operatorId.
+         * @param  operatorId  String value for operatorId.
+         * @return Builder
          */
-        public LocationResponeObject build() {
-            return new LocationResponeObject(uid, externalId, coordinates, operatorName, address,
-                    accessibility, evses, openingHours, updated, operatorComment, locationType);
+        public Builder operatorId(String operatorId) {
+            this.operatorId = operatorId;
+            return this;
+        }
+
+        /**
+         * Setter for openTwentyFourSeven.
+         * @param  openTwentyFourSeven  Boolean value for openTwentyFourSeven.
+         * @return Builder
+         */
+        public Builder openTwentyFourSeven(Boolean openTwentyFourSeven) {
+            this.openTwentyFourSeven = openTwentyFourSeven;
+            return this;
+        }
+
+        /**
+         * Builds a new {@link LocationResponeObjectV2} object using the set fields.
+         * @return {@link LocationResponeObjectV2}
+         */
+        public LocationResponeObjectV2 build() {
+            return new LocationResponeObjectV2(uid, externalId, coordinates, operatorName, address,
+                    accessibility, evses, openingHours, updated, locationType, operatorId,
+                    openTwentyFourSeven);
         }
     }
 }

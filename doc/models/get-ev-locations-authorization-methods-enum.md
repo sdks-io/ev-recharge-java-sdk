@@ -11,7 +11,7 @@ Filter by Locations that support the given Authorization Methods
 
 | Name |
 |  --- |
-| `NewMotionApp` |
-| `RFIDToken` |
-| `PnC` |
+| `NEWMOTIONAPP` |
+| `RFIDTOKEN` |
+| `PNC` |
 

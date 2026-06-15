@@ -9,7 +9,7 @@
 
 | Name |
 |  --- |
-| `NewMotionApp` |
-| `RFIDToken` |
-| `PnC` |
+| `NEWMOTIONAPP` |
+| `RFIDTOKEN` |
+| `PNC` |
 

@@ -20,7 +20,7 @@ public class SingleLocationMarker {
     private String markerType;
     private String uniqueKey;
     private SingleLocationMarkerStatusEnum status;
-    private Coordinates coordinates;
+    private Coordinates1 coordinates;
     private Double evseCount;
     private Double maxPower;
     private String geoHash;
@@ -39,7 +39,7 @@ public class SingleLocationMarker {
      * @param  markerType  String value for markerType.
      * @param  uniqueKey  String value for uniqueKey.
      * @param  status  SingleLocationMarkerStatusEnum value for status.
-     * @param  coordinates  Coordinates value for coordinates.
+     * @param  coordinates  Coordinates1 value for coordinates.
      * @param  evseCount  Double value for evseCount.
      * @param  maxPower  Double value for maxPower.
      * @param  geoHash  String value for geoHash.
@@ -52,7 +52,7 @@ public class SingleLocationMarker {
             String markerType,
             String uniqueKey,
             SingleLocationMarkerStatusEnum status,
-            Coordinates coordinates,
+            Coordinates1 coordinates,
             Double evseCount,
             Double maxPower,
             String geoHash,
@@ -126,6 +126,8 @@ public class SingleLocationMarker {
 
     /**
      * Getter for Status.
+     * Minimum of all status values in the Marker, e.g. if at least one Evse in the Marker is
+     * available, the value will be available
      * @return Returns the SingleLocationMarkerStatusEnum
      */
     @JsonGetter("status")
@@ -136,6 +138,8 @@ public class SingleLocationMarker {
 
     /**
      * Setter for Status.
+     * Minimum of all status values in the Marker, e.g. if at least one Evse in the Marker is
+     * available, the value will be available
      * @param status Value for SingleLocationMarkerStatusEnum
      */
     @JsonSetter("status")
@@ -145,22 +149,20 @@ public class SingleLocationMarker {
 
     /**
      * Getter for Coordinates.
-     * Coordinates of the Shell Recharge Site Location
-     * @return Returns the Coordinates
+     * @return Returns the Coordinates1
      */
     @JsonGetter("coordinates")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public Coordinates getCoordinates() {
+    public Coordinates1 getCoordinates() {
         return coordinates;
     }
 
     /**
      * Setter for Coordinates.
-     * Coordinates of the Shell Recharge Site Location
-     * @param coordinates Value for Coordinates
+     * @param coordinates Value for Coordinates1
      */
     @JsonSetter("coordinates")
-    public void setCoordinates(Coordinates coordinates) {
+    public void setCoordinates(Coordinates1 coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -329,7 +331,7 @@ public class SingleLocationMarker {
         private String markerType;
         private String uniqueKey;
         private SingleLocationMarkerStatusEnum status;
-        private Coordinates coordinates;
+        private Coordinates1 coordinates;
         private Double evseCount;
         private Double maxPower;
         private String geoHash;
@@ -383,10 +385,10 @@ public class SingleLocationMarker {
 
         /**
          * Setter for coordinates.
-         * @param  coordinates  Coordinates value for coordinates.
+         * @param  coordinates  Coordinates1 value for coordinates.
          * @return Builder
          */
-        public Builder coordinates(Coordinates coordinates) {
+        public Builder coordinates(Coordinates1 coordinates) {
             this.coordinates = coordinates;
             return this;
         }

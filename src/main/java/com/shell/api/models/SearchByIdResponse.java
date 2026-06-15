@@ -13,29 +13,29 @@ import java.util.List;
 import java.util.UUID;
 
 /**
- * This is a model class for Response type.
+ * This is a model class for SearchByIdResponse type.
  */
-public class Response {
+public class SearchByIdResponse {
     private UUID requestId;
     private String status;
-    private List<LocationResponeObject> data;
+    private List<SearchByIdLocationRespone> data;
 
     /**
      * Default constructor.
      */
-    public Response() {
+    public SearchByIdResponse() {
     }
 
     /**
      * Initialization constructor.
      * @param  requestId  UUID value for requestId.
      * @param  status  String value for status.
-     * @param  data  List of LocationResponeObject value for data.
+     * @param  data  List of SearchByIdLocationRespone value for data.
      */
-    public Response(
+    public SearchByIdResponse(
             UUID requestId,
             String status,
-            List<LocationResponeObject> data) {
+            List<SearchByIdLocationRespone> data) {
         this.requestId = requestId;
         this.status = status;
         this.data = data;
@@ -88,38 +88,38 @@ public class Response {
     /**
      * Getter for Data.
      * API Response
-     * @return Returns the List of LocationResponeObject
+     * @return Returns the List of SearchByIdLocationRespone
      */
     @JsonGetter("data")
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    public List<LocationResponeObject> getData() {
+    public List<SearchByIdLocationRespone> getData() {
         return data;
     }
 
     /**
      * Setter for Data.
      * API Response
-     * @param data Value for List of LocationResponeObject
+     * @param data Value for List of SearchByIdLocationRespone
      */
     @JsonSetter("data")
-    public void setData(List<LocationResponeObject> data) {
+    public void setData(List<SearchByIdLocationRespone> data) {
         this.data = data;
     }
 
     /**
-     * Converts this Response into string format.
+     * Converts this SearchByIdResponse into string format.
      * @return String representation of this class
      */
     @Override
     public String toString() {
-        return "Response [" + "requestId=" + requestId + ", status=" + status + ", data=" + data
-                + "]";
+        return "SearchByIdResponse [" + "requestId=" + requestId + ", status=" + status + ", data="
+                + data + "]";
     }
 
     /**
-     * Builds a new {@link Response.Builder} object.
+     * Builds a new {@link SearchByIdResponse.Builder} object.
      * Creates the instance with the state of the current model.
-     * @return a new {@link Response.Builder} object
+     * @return a new {@link SearchByIdResponse.Builder} object
      */
     public Builder toBuilder() {
         Builder builder = new Builder()
@@ -130,12 +130,12 @@ public class Response {
     }
 
     /**
-     * Class to build instances of {@link Response}.
+     * Class to build instances of {@link SearchByIdResponse}.
      */
     public static class Builder {
         private UUID requestId;
         private String status;
-        private List<LocationResponeObject> data;
+        private List<SearchByIdLocationRespone> data;
 
 
 
@@ -161,20 +161,20 @@ public class Response {
 
         /**
          * Setter for data.
-         * @param  data  List of LocationResponeObject value for data.
+         * @param  data  List of SearchByIdLocationRespone value for data.
          * @return Builder
          */
-        public Builder data(List<LocationResponeObject> data) {
+        public Builder data(List<SearchByIdLocationRespone> data) {
             this.data = data;
             return this;
         }
 
         /**
-         * Builds a new {@link Response} object using the set fields.
-         * @return {@link Response}
+         * Builds a new {@link SearchByIdResponse} object using the set fields.
+         * @return {@link SearchByIdResponse}
          */
-        public Response build() {
-            return new Response(requestId, status, data);
+        public SearchByIdResponse build() {
+            return new SearchByIdResponse(requestId, status, data);
         }
     }
 }

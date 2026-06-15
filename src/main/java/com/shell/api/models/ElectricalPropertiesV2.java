@@ -11,9 +11,9 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonSetter;
 
 /**
- * This is a model class for ElectricalProperties type.
+ * This is a model class for ElectricalPropertiesV2 type.
  */
-public class ElectricalProperties {
+public class ElectricalPropertiesV2 {
     private ElectricalPropertiesPowerTypeEnum powerType;
     private Double voltage;
     private Double amperage;
@@ -22,7 +22,7 @@ public class ElectricalProperties {
     /**
      * Default constructor.
      */
-    public ElectricalProperties() {
+    public ElectricalPropertiesV2() {
     }
 
     /**
@@ -32,7 +32,7 @@ public class ElectricalProperties {
      * @param  amperage  Double value for amperage.
      * @param  maxElectricPower  Double value for maxElectricPower.
      */
-    public ElectricalProperties(
+    public ElectricalPropertiesV2(
             ElectricalPropertiesPowerTypeEnum powerType,
             Double voltage,
             Double amperage,
@@ -45,6 +45,7 @@ public class ElectricalProperties {
 
     /**
      * Getter for PowerType.
+     * Power Type used in this connector.
      * @return Returns the ElectricalPropertiesPowerTypeEnum
      */
     @JsonGetter("powerType")
@@ -55,6 +56,7 @@ public class ElectricalProperties {
 
     /**
      * Setter for PowerType.
+     * Power Type used in this connector.
      * @param powerType Value for ElectricalPropertiesPowerTypeEnum
      */
     @JsonSetter("powerType")
@@ -126,19 +128,19 @@ public class ElectricalProperties {
     }
 
     /**
-     * Converts this ElectricalProperties into string format.
+     * Converts this ElectricalPropertiesV2 into string format.
      * @return String representation of this class
      */
     @Override
     public String toString() {
-        return "ElectricalProperties [" + "powerType=" + powerType + ", voltage=" + voltage
+        return "ElectricalPropertiesV2 [" + "powerType=" + powerType + ", voltage=" + voltage
                 + ", amperage=" + amperage + ", maxElectricPower=" + maxElectricPower + "]";
     }
 
     /**
-     * Builds a new {@link ElectricalProperties.Builder} object.
+     * Builds a new {@link ElectricalPropertiesV2.Builder} object.
      * Creates the instance with the state of the current model.
-     * @return a new {@link ElectricalProperties.Builder} object
+     * @return a new {@link ElectricalPropertiesV2.Builder} object
      */
     public Builder toBuilder() {
         Builder builder = new Builder()
@@ -150,7 +152,7 @@ public class ElectricalProperties {
     }
 
     /**
-     * Class to build instances of {@link ElectricalProperties}.
+     * Class to build instances of {@link ElectricalPropertiesV2}.
      */
     public static class Builder {
         private ElectricalPropertiesPowerTypeEnum powerType;
@@ -201,11 +203,11 @@ public class ElectricalProperties {
         }
 
         /**
-         * Builds a new {@link ElectricalProperties} object using the set fields.
-         * @return {@link ElectricalProperties}
+         * Builds a new {@link ElectricalPropertiesV2} object using the set fields.
+         * @return {@link ElectricalPropertiesV2}
          */
-        public ElectricalProperties build() {
-            return new ElectricalProperties(powerType, voltage, amperage, maxElectricPower);
+        public ElectricalPropertiesV2 build() {
+            return new ElectricalPropertiesV2(powerType, voltage, amperage, maxElectricPower);
         }
     }
 }

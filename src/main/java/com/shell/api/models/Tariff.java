@@ -162,6 +162,7 @@ public class Tariff {
 
     /**
      * Getter for UpdatedBy.
+     * Source of the last update of the tariff details
      * @return Returns the TariffVOUpdatedByEnum
      */
     @JsonGetter("updatedBy")
@@ -172,6 +173,7 @@ public class Tariff {
 
     /**
      * Setter for UpdatedBy.
+     * Source of the last update of the tariff details
      * @param updatedBy Value for TariffVOUpdatedByEnum
      */
     @JsonSetter("updatedBy")
