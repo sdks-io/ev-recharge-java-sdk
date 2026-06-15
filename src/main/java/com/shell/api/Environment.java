@@ -23,19 +23,9 @@ public enum Environment {
     PRODUCTION,
 
     /**
-     * Production Server
-     */
-    ENVIRONMENT2,
-
-    /**
      * Test Server
      */
-    ENVIRONMENT3,
-
-    /**
-     * Test Server
-     */
-    ENVIRONMENT4;
+    ENVIRONMENT2;
 
 
     private static TreeMap<String, Environment> valueMap = new TreeMap<>();
@@ -44,13 +34,9 @@ public enum Environment {
     static {
         PRODUCTION.value = "production";
         ENVIRONMENT2.value = "environment2";
-        ENVIRONMENT3.value = "environment3";
-        ENVIRONMENT4.value = "environment4";
 
         valueMap.put("production", PRODUCTION);
         valueMap.put("environment2", ENVIRONMENT2);
-        valueMap.put("environment3", ENVIRONMENT3);
-        valueMap.put("environment4", ENVIRONMENT4);
     }
 
     /**

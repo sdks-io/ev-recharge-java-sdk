@@ -233,20 +233,16 @@ public final class ShellEVClient implements Configuration {
             if (server.equals(Server.ENUM_DEFAULT)) {
                 return "https://api.shell.com/ev";
             }
-        }
-        if (environment.equals(Environment.ENVIRONMENT2)) {
-            if (server.equals(Server.ENUM_DEFAULT)) {
+            if (server.equals(Server.ACCESS_TOKEN_SERVER)) {
                 return "https://api.shell.com/v2/oauth";
             }
         }
-        if (environment.equals(Environment.ENVIRONMENT3)) {
+        if (environment.equals(Environment.ENVIRONMENT2)) {
             if (server.equals(Server.ENUM_DEFAULT)) {
                 return "https://api-test.shell.com/ev";
             }
-        }
-        if (environment.equals(Environment.ENVIRONMENT4)) {
-            if (server.equals(Server.ENUM_DEFAULT)) {
-                return "https://api-test.shell.com/v2/oauth";
+            if (server.equals(Server.ACCESS_TOKEN_SERVER)) {
+                return "https://api.shell.com/v2/oauth";
             }
         }
         return "https://api.shell.com/ev";

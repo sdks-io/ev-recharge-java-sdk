@@ -77,7 +77,7 @@ public final class OAuthAuthorizationController extends BaseController {
         return new ApiCall.Builder<OAuthToken, ApiException>()
                 .globalConfig(getGlobalConfiguration())
                 .requestBuilder(requestBuilder -> requestBuilder
-                        .server(Server.ENUM_DEFAULT.value())
+                        .server(Server.ACCESS_TOKEN_SERVER.value())
                         .path("/token")
                         .formParam(param -> param.key("grant_type")
                                 .value("client_credentials").isRequired(false))
