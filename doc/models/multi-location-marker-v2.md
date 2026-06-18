@@ -18,19 +18,23 @@ A Marker is a place on the map that represent multiple Locations at the same spo
 | `OperatorName` | `String` | Optional | Operator of this Shell Recharge Location | String getOperatorName() | setOperatorName(String operatorName) |
 | `MarkerType` | `String` | Required, Constant | Type of the Marker, in this case it will always be MultiLocation<br><br>**Value**: `"MultiLocation"` | String getMarkerType() | setMarkerType(String markerType) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "locationCount": 6.0,
-  "evseCount": 10.0,
-  "maxPower": 42.0,
-  "operatorName": "TheNewMotion",
-  "markerType": "MultiLocation",
-  "coordinates": {
-    "latitude": 39.14,
-    "longitude": 36.94
-  }
-}
+```java
+import com.shell.apitest.models.Coordinates;
+import com.shell.apitest.models.MultiLocationMarkerV2;
+
+MultiLocationMarkerV2 multiLocationMarkerV2 = new MultiLocationMarkerV2.Builder(
+    "MultiLocation"
+)
+.coordinates(new Coordinates.Builder()
+        .latitude(39.14D)
+        .longitude(36.94D)
+        .build())
+.locationCount(6D)
+.evseCount(10D)
+.maxPower(42D)
+.operatorName("TheNewMotion")
+.build();
 ```
 

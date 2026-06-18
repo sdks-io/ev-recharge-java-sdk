@@ -27,10 +27,10 @@ Documentation for accessing and setting credentials for BearerAuth.
 You must initialize the client with *OAuth 2.0 Client Credentials Grant* credentials as shown in the following code snippet. This will fetch the OAuth token automatically when any of the endpoints, requiring *OAuth 2.0 Client Credentials Grant* authentication, are called.
 
 ```java
-import com.shell.api.ShellEVClient;
-import com.shell.api.authentication.ClientCredentialsAuthModel;
-import com.shell.api.exceptions.ApiException;
-import com.shell.api.models.OAuthToken;
+import com.shell.apitest.ShellEVClient;
+import com.shell.apitest.authentication.ClientCredentialsAuthModel;
+import com.shell.apitest.exceptions.ApiException;
+import com.shell.apitest.models.OAuthToken;
 import java.io.IOException;
 
 public class Program {
@@ -55,9 +55,9 @@ Your application can also manually provide an OAuthToken using the setter `oAuth
 Whenever the OAuth Token gets updated, the provided callback implementation will be executed. For instance, you may use it to store your access token whenever it gets updated.
 
 ```java
-import com.shell.api.ShellEVClient;
-import com.shell.api.exceptions.ApiException;
-import com.shell.api.models.OAuthToken;
+import com.shell.apitest.ShellEVClient;
+import com.shell.apitest.exceptions.ApiException;
+import com.shell.apitest.models.OAuthToken;
 import java.io.IOException;
 
 public class Program {
@@ -83,9 +83,9 @@ public class Program {
 To authorize a client using a stored access token, set up the `oAuthTokenProvider` in `ClientCredentialsAuthModel` builder along with the other auth parameters before creating the client:
 
 ```java
-import com.shell.api.ShellEVClient;
-import com.shell.api.exceptions.ApiException;
-import com.shell.api.models.OAuthToken;
+import com.shell.apitest.ShellEVClient;
+import com.shell.apitest.exceptions.ApiException;
+import com.shell.apitest.models.OAuthToken;
 import java.io.IOException;
 
 public class Program {

@@ -27,51 +27,67 @@ Tariff metadata aligned with TariffV2 GraphQL schema
 | `LastUpdated` | `LocalDateTime` | Required | - | LocalDateTime getLastUpdated() | setLastUpdated(LocalDateTime lastUpdated) |
 | `CreatedBy` | `String` | Required | Identifier of the actor who created the tariff | String getCreatedBy() | setCreatedBy(String createdBy) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "tariffId": "123e4567-e89b-12d3-a456-426614174000",
-  "tariffType": "DRIVER",
-  "powerRange": {
-    "min": 0,
-    "max": 100
-  },
-  "internalId": "123e4567-e89b-12d3-a456-426614174000",
-  "operatorId": "AT-HTB",
-  "providerId": "Shell_RP_2",
-  "currency": "EUR",
-  "tariffAltText": [
-    {
-      "language": "en",
-      "text": "€0.30 per kWh"
-    }
-  ],
-  "minPrice": 0.3,
-  "maxPrice": 999.0,
-  "elements": [
-    {
-      "priceComponents": [
-        {
-          "type": "FLAT",
-          "stepSize": 1,
-          "price": 0.3,
-          "vat": 21.0
-        }
-      ],
-      "restrictions": {
-        "startTime": "startTime0",
-        "endTime": "endTime2",
-        "startDate": "2016-03-13",
-        "endDate": "2016-03-13",
-        "minKwh": 247.22
-      }
-    }
-  ],
-  "startDateTime": "10/06/2021 10:44:24",
-  "endDateTime": "10/06/2021 10:44:24",
-  "lastUpdated": "10/06/2021 10:44:24",
-  "createdBy": "STAGE_API"
-}
+```java
+import com.shell.apitest.DateTimeHelper;
+import com.shell.apitest.models.PowerRange;
+import com.shell.apitest.models.PriceComponent;
+import com.shell.apitest.models.Restrictions;
+import com.shell.apitest.models.TariffAltText;
+import com.shell.apitest.models.TariffElement;
+import com.shell.apitest.models.TariffTypeEnum;
+import com.shell.apitest.models.TariffV2;
+import com.shell.apitest.models.TypeEnum;
+import java.util.Arrays;
+
+TariffV2 tariffV2 = new TariffV2.Builder(
+    "123e4567-e89b-12d3-a456-426614174000",
+    TariffTypeEnum.REIMBURSEMENT,
+    new PowerRange.Builder(
+        0,
+        100
+    )
+    .build(),
+    "123e4567-e89b-12d3-a456-426614174000",
+    "AT-HTB",
+    "Shell_RP_2",
+    "EUR",
+    Arrays.asList(
+        new TariffAltText.Builder(
+            "en",
+            "€0.30 per kWh"
+        )
+        .build()
+    ),
+    0.3D,
+    999D,
+    Arrays.asList(
+        new TariffElement.Builder(
+            Arrays.asList(
+                new PriceComponent.Builder(
+                    TypeEnum.FLAT,
+                    1,
+                    0.3D,
+                    21D
+                )
+                .build()
+            )
+        )
+        .restrictions(new Restrictions.Builder()
+                .startTime("startTime0")
+                .endTime("endTime2")
+                .startDate(DateTimeHelper.fromSimpleDate("2016-03-13"))
+                .endDate(DateTimeHelper.fromSimpleDate("2016-03-13"))
+                .minKwh(247.22D)
+                .build())
+        .build()
+    ),
+    DateTimeHelper.fromRfc8601DateTime("2021-10-06T10:44:24Z"),
+    DateTimeHelper.fromRfc8601DateTime("2021-10-06T10:44:24Z"),
+    DateTimeHelper.fromRfc8601DateTime("2021-10-06T10:44:24Z"),
+    "STAGE_API"
+)
+.build();
 ```
 

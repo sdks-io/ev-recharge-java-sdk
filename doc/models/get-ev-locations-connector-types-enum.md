@@ -30,3 +30,11 @@ Filter by Locations that have Connectors with the set of Connector Types
 | `TESLA` |
 | `UNSPECIFIED` |
 
+## Example
+
+```java
+import com.shell.apitest.models.GetEVLocationsConnectorTypesEnum;
+
+GetEVLocationsConnectorTypesEnum getEVLocationsConnectorTypes = GetEVLocationsConnectorTypesEnum.AVCON;
+```
+

@@ -18,7 +18,9 @@ Accessibility Status
 
 ## Example
 
-```
-FreePublic
+```java
+import com.shell.apitest.models.AccessibilityStatusEnum;
+
+AccessibilityStatusEnum accessibilityStatus = AccessibilityStatusEnum.FREEPUBLIC;
 ```
 

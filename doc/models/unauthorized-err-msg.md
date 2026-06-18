@@ -14,17 +14,19 @@
 | `Description` | `String` | Optional | Technical details of the error message, the example which is given in the sample payload is one of the scenarios. actual response will vary based on the technical nature | String getDescription() | setDescription(String description) |
 | `Details` | `List<String>` | Optional | - | List<String> getDetails() | setDetails(List<String> details) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "code": "E0003",
-  "message": "Unauthorized",
-  "description": "Invalid Access Token",
-  "details": [
-    "details1",
-    "details2"
-  ]
-}
+```java
+import com.shell.apitest.models.UnauthorizedErrMsg;
+import java.util.Arrays;
+
+UnauthorizedErrMsg unauthorizedErrMsg = new UnauthorizedErrMsg.Builder()
+    .code("E0003")
+    .message("Unauthorized")
+    .description("Invalid Access Token")
+    .details(Arrays.asList(
+        "details9"
+    ))
+    .build();
 ```
 

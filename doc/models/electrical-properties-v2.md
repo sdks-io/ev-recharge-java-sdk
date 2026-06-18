@@ -16,14 +16,17 @@ Electrical Properties of the Connector
 | `Amperage` | `Double` | Optional | Electric Current in Amperes for this connector | Double getAmperage() | setAmperage(Double amperage) |
 | `MaxElectricPower` | `Double` | Optional | Power in Kilowatts for this connector | Double getMaxElectricPower() | setMaxElectricPower(Double maxElectricPower) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "powerType": "AC1Phase",
-  "voltage": 230.0,
-  "amperage": 16.0,
-  "maxElectricPower": 3.7
-}
+```java
+import com.shell.apitest.models.ElectricalPropertiesPowerTypeEnum;
+import com.shell.apitest.models.ElectricalPropertiesV2;
+
+ElectricalPropertiesV2 electricalPropertiesV2 = new ElectricalPropertiesV2.Builder()
+    .powerType(ElectricalPropertiesPowerTypeEnum.AC1PHASE)
+    .voltage(230D)
+    .amperage(16D)
+    .maxElectricPower(3.7D)
+    .build();
 ```
 

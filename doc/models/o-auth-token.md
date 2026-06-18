@@ -18,16 +18,19 @@ OAuth 2 Authorization endpoint response
 | `Expiry` | `Long` | Optional | Time of token expiry as unix timestamp (UTC) | Long getExpiry() | setExpiry(Long expiry) |
 | `RefreshToken` | `String` | Optional | Refresh token<br>Used to get a new access token when it expires. | String getRefreshToken() | setRefreshToken(String refreshToken) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "access_token": "access_token4",
-  "token_type": "token_type6",
-  "expires_in": 74,
-  "scope": "scope6",
-  "expiry": 88,
-  "refresh_token": "refresh_token6"
-}
+```java
+import com.shell.apitest.models.OAuthToken;
+
+OAuthToken oAuthToken = new OAuthToken.Builder(
+    "access_token2",
+    "token_type2"
+)
+.expiresIn(84L)
+.scope("scope8")
+.expiry(78L)
+.refreshToken("refresh_token4")
+.build();
 ```
 

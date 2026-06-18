@@ -24,8 +24,8 @@ To configure the SDK to use a proxy server, initialize the proxy configuration d
 ## Usage Example
 
 ```java
-import com.shell.api.ShellEVClient;
-import com.shell.api.http.client.HttpProxyConfiguration;
+import com.shell.apitest.ShellEVClient;
+import com.shell.apitest.http.client.HttpProxyConfiguration;
 
 ShellEVClient client = new ShellEVClient.Builder()
   .httpClientConfig(configBuilder -> configBuilder

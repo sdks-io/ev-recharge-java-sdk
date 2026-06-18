@@ -14,14 +14,18 @@
 | `Price` | `double` | Required | Price per step in the specified currency for this price component | double getPrice() | setPrice(double price) |
 | `Vat` | `double` | Required | VAT percentage applicable to this price component | double getVat() | setVat(double vat) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "type": "FLAT",
-  "stepSize": 1,
-  "price": 0.3,
-  "vat": 21.0
-}
+```java
+import com.shell.apitest.models.PriceComponent;
+import com.shell.apitest.models.TypeEnum;
+
+PriceComponent priceComponent = new PriceComponent.Builder(
+    TypeEnum.FLAT,
+    1,
+    0.3D,
+    21D
+)
+.build();
 ```
 

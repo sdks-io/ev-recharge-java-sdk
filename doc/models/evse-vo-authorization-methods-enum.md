@@ -17,7 +17,9 @@ Methods that can be used to Authorize sessions on this EVSE
 
 ## Example
 
-```
-NewMotionApp
+```java
+import com.shell.apitest.models.EvseVOAuthorizationMethodsEnum;
+
+EvseVOAuthorizationMethodsEnum evseVOAuthorizationMethods = EvseVOAuthorizationMethodsEnum.NEWMOTIONAPP;
 ```
 

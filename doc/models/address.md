@@ -16,14 +16,16 @@ Address of the Shell Recharge Location
 | `City` | `String` | Optional | City name of the Shell Recharge Location | String getCity() | setCity(String city) |
 | `Country` | `String` | Optional | ISO 3166 Alpha-2 Country Code of the Shell Recharge Location | String getCountry() | setCountry(String country) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "streetAndNumber": "Maarssenbroeksedijk 33",
-  "postalCode": "3542 DM",
-  "city": "Utrecht",
-  "country": "NLD"
-}
+```java
+import com.shell.apitest.models.Address;
+
+Address address = new Address.Builder()
+    .streetAndNumber("Maarssenbroeksedijk 33")
+    .postalCode("3542 DM")
+    .city("Utrecht")
+    .country("NLD")
+    .build();
 ```
 

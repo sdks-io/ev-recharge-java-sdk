@@ -13,11 +13,14 @@ Accessibility of the Location
 |  --- | --- | --- | --- | --- | --- |
 | `Status` | [`AccessibilityStatusEnum`](../../doc/models/accessibility-status-enum.md) | Optional | Accessibility Status | AccessibilityStatusEnum getStatus() | setStatus(AccessibilityStatusEnum status) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "status": "FreePublic"
-}
+```java
+import com.shell.apitest.models.AccessibilityStatusEnum;
+import com.shell.apitest.models.AccessibilityV2;
+
+AccessibilityV2 accessibilityV2 = new AccessibilityV2.Builder()
+    .status(AccessibilityStatusEnum.FREEPUBLIC)
+    .build();
 ```
 

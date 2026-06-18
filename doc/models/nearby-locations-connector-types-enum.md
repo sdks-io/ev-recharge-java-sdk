@@ -30,3 +30,11 @@ Filter by Locations that have Connectors with these Connector Types
 | `TESLA` |
 | `UNSPECIFIED` |
 
+## Example
+
+```java
+import com.shell.apitest.models.NearbyLocationsConnectorTypesEnum;
+
+NearbyLocationsConnectorTypesEnum nearbyLocationsConnectorTypes = NearbyLocationsConnectorTypesEnum.TYPE3;
+```
+

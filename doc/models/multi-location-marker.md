@@ -19,20 +19,24 @@ A Marker is a place on the map that represent multiple Locations at the same spo
 | `MaxPower` | `Double` | Optional | Maximum power in kW across all locations grouped in this marker (disregarding availability) | Double getMaxPower() | setMaxPower(Double maxPower) |
 | `GeoHash` | `String` | Optional | GeoHash of marker coordinates | String getGeoHash() | setGeoHash(String geoHash) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "markerType": "MultiLocation",
-  "uniqueKey": "2060319_6",
-  "locationCount": 6.0,
-  "evseCount": 10.0,
-  "maxPower": 42.0,
-  "geoHash": "sx",
-  "coordinates": {
-    "latitude": 39.14,
-    "longitude": 36.94
-  }
-}
+```java
+import com.shell.apitest.models.Coordinates1;
+import com.shell.apitest.models.MultiLocationMarker;
+
+MultiLocationMarker multiLocationMarker = new MultiLocationMarker.Builder(
+    "MultiLocation"
+)
+.uniqueKey("2060319_6")
+.coordinates(new Coordinates1.Builder()
+        .latitude(39.14D)
+        .longitude(36.94D)
+        .build())
+.locationCount(6D)
+.evseCount(10D)
+.maxPower(42D)
+.geoHash("sx")
+.build();
 ```
 

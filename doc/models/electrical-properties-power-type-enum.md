@@ -17,7 +17,9 @@ Power Type used in this connector.
 
 ## Example
 
-```
-AC1Phase
+```java
+import com.shell.apitest.models.ElectricalPropertiesPowerTypeEnum;
+
+ElectricalPropertiesPowerTypeEnum electricalPropertiesPowerType = ElectricalPropertiesPowerTypeEnum.AC3PHASE;
 ```
 

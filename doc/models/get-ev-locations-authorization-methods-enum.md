@@ -15,3 +15,11 @@ Filter by Locations that support the given Authorization Methods
 | `RFIDTOKEN` |
 | `PNC` |
 
+## Example
+
+```java
+import com.shell.apitest.models.GetEVLocationsAuthorizationMethodsEnum;
+
+GetEVLocationsAuthorizationMethodsEnum getEVLocationsAuthorizationMethods = GetEVLocationsAuthorizationMethodsEnum.RFIDTOKEN;
+```
+

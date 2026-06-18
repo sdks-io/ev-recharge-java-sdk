@@ -20,19 +20,24 @@ Each Location will contain one or more EVSEs (Electric Vehicle Supply Equipment)
 | `Connectors` | [`List<ConnectorV2>`](../../doc/models/connector-v2.md) | Optional | List of all connectors available on this EVSE unit. | List<ConnectorV2> getConnectors() | setConnectors(List<ConnectorV2> connectors) |
 | `AuthorizationMethods` | [`List<SingleLocationMarkerAuthorizationMethodsItemsEnum>`](../../doc/models/single-location-marker-authorization-methods-items-enum.md) | Optional | Methods that can be used to Authorize sessions on this EVSE | List<SingleLocationMarkerAuthorizationMethodsItemsEnum> getAuthorizationMethods() | setAuthorizationMethods(List<SingleLocationMarkerAuthorizationMethodsItemsEnum> authorizationMethods) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "uid": "NL*MKS*E0000001*0_1",
-  "externalId": "01001188_1",
-  "evseId": "NL*TNM*E01000401*0",
-  "status": "Available",
-  "updated": "10/06/2021 10:44:24",
-  "physicalReference": "Green",
-  "authorizationMethods": [
-    "NewMotionApp"
-  ]
-}
+```java
+import com.shell.apitest.models.EvseV2;
+import com.shell.apitest.models.EvseVOStatusEnum;
+import com.shell.apitest.models.SingleLocationMarkerAuthorizationMethodsItemsEnum;
+import java.util.Arrays;
+
+EvseV2 evseV2 = new EvseV2.Builder()
+    .uid("NL*MKS*E0000001*0_1")
+    .externalId("01001188_1")
+    .evseId("NL*TNM*E01000401*0")
+    .status(EvseVOStatusEnum.AVAILABLE)
+    .updated("2021-10-06T10:44:24Z")
+    .physicalReference("Green")
+    .authorizationMethods(Arrays.asList(
+        SingleLocationMarkerAuthorizationMethodsItemsEnum.NEWMOTIONAPP
+    ))
+    .build();
 ```
 

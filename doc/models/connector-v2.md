@@ -16,19 +16,24 @@ An EVSE can have one or many Connectors. Each Connector will normally have a dif
 | `ConnectorType` | [`ConnectorVOConnectorTypeEnum`](../../doc/models/connector-vo-connector-type-enum.md) | Optional | Type of the connector in the EVSE unit. | ConnectorVOConnectorTypeEnum getConnectorType() | setConnectorType(ConnectorVOConnectorTypeEnum connectorType) |
 | `ElectricalProperties` | [`ElectricalPropertiesV2`](../../doc/models/electrical-properties-v2.md) | Optional | Electrical Properties of the Connector | ElectricalPropertiesV2 getElectricalProperties() | setElectricalProperties(ElectricalPropertiesV2 electricalProperties) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "uid": "2",
-  "externalId": "01000861_1_21",
-  "connectorType": "Type2",
-  "electricalProperties": {
-    "powerType": "AC1Phase",
-    "voltage": 110.62,
-    "amperage": 46.4,
-    "maxElectricPower": 232.04
-  }
-}
+```java
+import com.shell.apitest.models.ConnectorV2;
+import com.shell.apitest.models.ConnectorVOConnectorTypeEnum;
+import com.shell.apitest.models.ElectricalPropertiesPowerTypeEnum;
+import com.shell.apitest.models.ElectricalPropertiesV2;
+
+ConnectorV2 connectorV2 = new ConnectorV2.Builder()
+    .uid("2")
+    .externalId("01000861_1_21")
+    .connectorType(ConnectorVOConnectorTypeEnum.TYPE2)
+    .electricalProperties(new ElectricalPropertiesV2.Builder()
+        .powerType(ElectricalPropertiesPowerTypeEnum.AC1PHASE)
+        .voltage(110.62D)
+        .amperage(46.4D)
+        .maxElectricPower(232.04D)
+        .build())
+    .build();
 ```
 

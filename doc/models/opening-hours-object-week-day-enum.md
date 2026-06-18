@@ -21,7 +21,9 @@
 
 ## Example
 
-```
-Mon
+```java
+import com.shell.apitest.models.OpeningHoursObjectWeekDayEnum;
+
+OpeningHoursObjectWeekDayEnum openingHoursObjectWeekDay = OpeningHoursObjectWeekDayEnum.SAT;
 ```
 

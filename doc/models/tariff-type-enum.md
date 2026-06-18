@@ -16,3 +16,11 @@ Tariff type classification
 | `REIMBURSEMENT` |
 | `VMSP` |
 
+## Example
+
+```java
+import com.shell.apitest.models.TariffTypeEnum;
+
+TariffTypeEnum tariffType = TariffTypeEnum.REIMBURSEMENT;
+```
+

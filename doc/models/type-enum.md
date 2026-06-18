@@ -18,7 +18,9 @@ Type of the price component
 
 ## Example
 
-```
-FLAT
+```java
+import com.shell.apitest.models.TypeEnum;
+
+TypeEnum type = TypeEnum.FLAT;
 ```
 

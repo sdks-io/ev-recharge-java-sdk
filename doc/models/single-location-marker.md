@@ -22,22 +22,27 @@ A Marker is a place on the map that represent a single Location
 | `AuthorizationMethods` | [`List<SingleLocationMarkerAuthorizationMethodsItemsEnum>`](../../doc/models/single-location-marker-authorization-methods-items-enum.md) | Optional | Methods that can be used to Authorize sessions on this EVSE | List<SingleLocationMarkerAuthorizationMethodsItemsEnum> getAuthorizationMethods() | setAuthorizationMethods(List<SingleLocationMarkerAuthorizationMethodsItemsEnum> authorizationMethods) |
 | `OperatorId` | `String` | Optional | Unique Id of the operator | String getOperatorId() | setOperatorId(String operatorId) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "markerType": "SingleLocation",
-  "uniqueKey": "2057411_1",
-  "status": "Available",
-  "evseCount": 12.0,
-  "maxPower": 42.0,
-  "geoHash": "sx",
-  "locationUid": 2057411,
-  "operatorId": "AT-HTB",
-  "coordinates": {
-    "latitude": 39.14,
-    "longitude": 36.94
-  }
-}
+```java
+import com.shell.apitest.models.Coordinates1;
+import com.shell.apitest.models.SingleLocationMarker;
+import com.shell.apitest.models.SingleLocationMarkerStatusEnum;
+
+SingleLocationMarker singleLocationMarker = new SingleLocationMarker.Builder(
+    "SingleLocation"
+)
+.uniqueKey("2057411_1")
+.status(SingleLocationMarkerStatusEnum.AVAILABLE)
+.coordinates(new Coordinates1.Builder()
+        .latitude(39.14D)
+        .longitude(36.94D)
+        .build())
+.evseCount(12D)
+.maxPower(42D)
+.geoHash("sx")
+.locationUid(2057411D)
+.operatorId("AT-HTB")
+.build();
 ```
 

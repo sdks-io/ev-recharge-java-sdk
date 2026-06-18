@@ -14,3 +14,11 @@
 | `UNAVAILABLE` |
 | `UNKNOWN` |
 
+## Example
+
+```java
+import com.shell.apitest.models.EvseStatusEnum;
+
+EvseStatusEnum evseStatus = EvseStatusEnum.AVAILABLE;
+```
+

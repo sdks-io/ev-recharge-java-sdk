@@ -16,7 +16,9 @@ Indicates overall status of the request
 
 ## Example
 
-```
-SUCCESS
+```java
+import com.shell.apitest.models.InlineResponse2021StatusEnum;
+
+InlineResponse2021StatusEnum inlineResponse2021Status = InlineResponse2021StatusEnum.SUCCESS;
 ```
 

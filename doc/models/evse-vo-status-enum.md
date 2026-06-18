@@ -18,7 +18,9 @@ The current status of the EVSE units availability
 
 ## Example
 
-```
-Available
+```java
+import com.shell.apitest.models.EvseVOStatusEnum;
+
+EvseVOStatusEnum evseVOStatus = EvseVOStatusEnum.AVAILABLE;
 ```
 

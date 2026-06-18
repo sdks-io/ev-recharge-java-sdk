@@ -15,23 +15,15 @@ Requested resource path not available it will provides the error in OpenAPI spec
 | `Status` | `String` | Optional | Status of the request | String getStatus() | setStatus(String status) |
 | `Errors` | [`List<NotFoundErrMsg>`](../../doc/models/not-found-err-msg.md) | Optional | Exception details of the error | List<NotFoundErrMsg> getErrors() | setErrors(List<NotFoundErrMsg> errors) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "requestId": "9d2dee33-7803-485a-a2b1-2c7538e597ee",
-  "status": "FAILED",
-  "errors": [
-    {
-      "code": "code8",
-      "message": "message0",
-      "description": "description0",
-      "details": [
-        "details5",
-        "details6"
-      ]
-    }
-  ]
+```java
+try {
+    // make the API call
+} catch (NotFoundException e) {
+    e.printStackTrace();
+} catch (ApiException e) {
+    e.printStackTrace();
 }
 ```
 

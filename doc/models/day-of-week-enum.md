@@ -19,7 +19,9 @@
 
 ## Example
 
-```
-MONDAY
+```java
+import com.shell.apitest.models.DayOfWeekEnum;
+
+DayOfWeekEnum dayOfWeek = DayOfWeekEnum.SUNDAY;
 ```
 

@@ -30,3 +30,11 @@ Filter by Locations that have Connectors with the set of Connector Types
 | `TESLA` |
 | `UNSPECIFIED` |
 
+## Example
+
+```java
+import com.shell.apitest.models.LocationsMarkersConnectorTypesEnum;
+
+LocationsMarkersConnectorTypesEnum locationsMarkersConnectorTypes = LocationsMarkersConnectorTypesEnum.INDUSTRIAL3PEAC;
+```
+

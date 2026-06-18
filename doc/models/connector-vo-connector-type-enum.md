@@ -32,7 +32,9 @@ Type of the connector in the EVSE unit.
 
 ## Example
 
-```
-Type2
+```java
+import com.shell.apitest.models.ConnectorVOConnectorTypeEnum;
+
+ConnectorVOConnectorTypeEnum connectorVOConnectorType = ConnectorVOConnectorTypeEnum.TYPE3;
 ```
 

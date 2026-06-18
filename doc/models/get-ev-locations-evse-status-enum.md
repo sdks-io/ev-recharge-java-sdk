@@ -16,3 +16,11 @@ Filter by Locations that have the given status
 | `UNAVAILABLE` |
 | `UNKNOWN` |
 
+## Example
+
+```java
+import com.shell.apitest.models.GetEVLocationsEvseStatusEnum;
+
+GetEVLocationsEvseStatusEnum getEVLocationsEvseStatus = GetEVLocationsEvseStatusEnum.AVAILABLE;
+```
+

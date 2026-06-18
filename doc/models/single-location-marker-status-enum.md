@@ -18,7 +18,9 @@ Minimum of all status values in the Marker, e.g. if at least one Evse in the Mar
 
 ## Example
 
-```
-Available
+```java
+import com.shell.apitest.models.SingleLocationMarkerStatusEnum;
+
+SingleLocationMarkerStatusEnum singleLocationMarkerStatus = SingleLocationMarkerStatusEnum.AVAILABLE;
 ```
 

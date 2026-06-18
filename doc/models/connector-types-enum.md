@@ -28,3 +28,11 @@
 | `TESLA` |
 | `UNSPECIFIED` |
 
+## Example
+
+```java
+import com.shell.apitest.models.ConnectorTypesEnum;
+
+ConnectorTypesEnum connectorTypes = ConnectorTypesEnum.TYPE2;
+```
+

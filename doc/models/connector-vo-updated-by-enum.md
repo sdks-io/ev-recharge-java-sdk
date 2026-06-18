@@ -18,7 +18,9 @@ Source of the last update
 
 ## Example
 
-```
-TariffService
+```java
+import com.shell.apitest.models.ConnectorVOUpdatedByEnum;
+
+ConnectorVOUpdatedByEnum connectorVOUpdatedBy = ConnectorVOUpdatedByEnum.FEED;
 ```
 

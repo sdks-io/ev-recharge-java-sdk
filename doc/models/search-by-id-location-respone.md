@@ -22,27 +22,31 @@
 | `OperatorId` | `String` | Optional | Unique Id of the operator | String getOperatorId() | setOperatorId(String operatorId) |
 | `OpenTwentyFourSeven` | `Boolean` | Optional | Whether the location is open 24/7 | Boolean getOpenTwentyFourSeven() | setOpenTwentyFourSeven(Boolean openTwentyFourSeven) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "uid": "NL*MKS*E0000001*0",
-  "externalId": "01001188",
-  "operatorName": "TheNewMotion",
-  "updated": "10/06/2021 10:44:24",
-  "locationType": "Unknown",
-  "operatorId": "AT-HTB",
-  "openTwentyFourSeven": true,
-  "coordinates": {
-    "latitude": 39.14,
-    "longitude": 36.94
-  },
-  "address": {
-    "streetAndNumber": "streetAndNumber2",
-    "postalCode": "postalCode8",
-    "city": "city6",
-    "country": "country0"
-  }
-}
+```java
+import com.shell.apitest.models.Address;
+import com.shell.apitest.models.Coordinates;
+import com.shell.apitest.models.SearchByIdLocationRespone;
+
+SearchByIdLocationRespone searchByIdLocationRespone = new SearchByIdLocationRespone.Builder()
+    .uid("NL*MKS*E0000001*0")
+    .externalId("01001188")
+    .coordinates(new Coordinates.Builder()
+        .latitude(39.14D)
+        .longitude(36.94D)
+        .build())
+    .operatorName("TheNewMotion")
+    .address(new Address.Builder()
+        .streetAndNumber("streetAndNumber2")
+        .postalCode("postalCode8")
+        .city("city6")
+        .country("country0")
+        .build())
+    .updated("2021-10-06T10:44:24Z")
+    .locationType("Unknown")
+    .operatorId("AT-HTB")
+    .openTwentyFourSeven(true)
+    .build();
 ```
 

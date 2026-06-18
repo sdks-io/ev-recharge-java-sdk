@@ -12,12 +12,15 @@
 | `Min` | `int` | Required | Minimum supported power in kW | int getMin() | setMin(int min) |
 | `Max` | `int` | Required | Maximum supported power in kW | int getMax() | setMax(int max) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "min": 0,
-  "max": 100
-}
+```java
+import com.shell.apitest.models.PowerRange;
+
+PowerRange powerRange = new PowerRange.Builder(
+    0,
+    100
+)
+.build();
 ```
 

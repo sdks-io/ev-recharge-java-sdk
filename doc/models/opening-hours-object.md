@@ -13,13 +13,16 @@
 | `StartTime` | `String` | Optional | Hour in 24h local time when the location opens. | String getStartTime() | setStartTime(String startTime) |
 | `EndTime` | `String` | Optional | Hour in 24h local time when the location closes. | String getEndTime() | setEndTime(String endTime) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "weekDay": "Mon",
-  "startTime": "08:00",
-  "endTime": "23:00"
-}
+```java
+import com.shell.apitest.models.OpeningHoursObject;
+import com.shell.apitest.models.OpeningHoursObjectWeekDayEnum;
+
+OpeningHoursObject openingHoursObject = new OpeningHoursObject.Builder()
+    .weekDay(OpeningHoursObjectWeekDayEnum.MON)
+    .startTime("08:00")
+    .endTime("23:00")
+    .build();
 ```
 

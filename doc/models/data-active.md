@@ -18,16 +18,20 @@
 | `SessionState` | [`ChargeRetrieveState`](../../doc/models/charge-retrieve-state.md) | Optional | - | ChargeRetrieveState getSessionState() | setSessionState(ChargeRetrieveState sessionState) |
 | `LastUpdated` | `String` | Optional | - | String getLastUpdated() | setLastUpdated(String lastUpdated) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "id": "78b5d7a3-bdba-43d7-9851-1c84fcddb782",
-  "userId": "281482b6-2c9a-4fd1-b3ea-1928edb40ef9",
-  "emaId": "NL-TNM-C00122045-K",
-  "evseId": "NL*TNM*E02003451*0",
-  "startedAt": "08/19/2015 11:20:27",
-  "stoppedAt": "08/19/2015 11:20:27"
-}
+```java
+import com.shell.apitest.DateTimeHelper;
+import com.shell.apitest.models.DataActive;
+import java.util.UUID;
+
+DataActive dataActive = new DataActive.Builder()
+    .id(UUID.fromString("78b5d7a3-bdba-43d7-9851-1c84fcddb782"))
+    .userId("281482b6-2c9a-4fd1-b3ea-1928edb40ef9")
+    .emaId("NL-TNM-C00122045-K")
+    .evseId("NL*TNM*E02003451*0")
+    .startedAt(DateTimeHelper.fromRfc8601DateTime("2015-08-19T11:20:27Z"))
+    .stoppedAt(DateTimeHelper.fromRfc8601DateTime("2015-08-19T11:20:27Z"))
+    .build();
 ```
 

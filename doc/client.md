@@ -5,18 +5,18 @@ The following parameters are configurable for the API Client:
 
 | Parameter | Type | Description |
 |  --- | --- | --- |
-| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.PRODUCTION`** |
+| environment | [`Environment`](../README.md#environments) | The API environment. <br> **Default: `Environment.SIT`** |
 | httpClientConfig | [`Consumer<HttpClientConfiguration.Builder>`](../doc/http-client-configuration-builder.md) | Set up Http Client Configuration instance. |
 | clientCredentialsAuth | [`ClientCredentialsAuth`](auth/oauth-2-client-credentials-grant.md) | The Credentials Setter for OAuth 2 Client Credentials Grant |
 
 The API client can be initialized as follows:
 
 ```java
-import com.shell.api.Environment;
-import com.shell.api.ShellEVClient;
-import com.shell.api.authentication.ClientCredentialsAuthModel;
-import com.shell.api.exceptions.ApiException;
-import com.shell.api.models.OAuthToken;
+import com.shell.apitest.Environment;
+import com.shell.apitest.ShellEVClient;
+import com.shell.apitest.authentication.ClientCredentialsAuthModel;
+import com.shell.apitest.exceptions.ApiException;
+import com.shell.apitest.models.OAuthToken;
 import java.io.IOException;
 
 public class Program {
@@ -29,7 +29,7 @@ public class Program {
                     "OAuthClientSecret"
                 )
                 .build())
-            .environment(Environment.PRODUCTION)
+            .environment(Environment.SIT)
             .build();
 
     }

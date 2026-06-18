@@ -13,3 +13,11 @@
 | `RFIDTOKEN` |
 | `PNC` |
 
+## Example
+
+```java
+import com.shell.apitest.models.SingleLocationMarkerAuthorizationMethodsItemsEnum;
+
+SingleLocationMarkerAuthorizationMethodsItemsEnum singleLocationMarkerAuthorizationMethodsItems = SingleLocationMarkerAuthorizationMethodsItemsEnum.RFIDTOKEN;
+```
+

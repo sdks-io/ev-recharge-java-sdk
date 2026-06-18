@@ -14,18 +14,19 @@
 | `Description` | `String` | Optional | Technical details of the error message, the example which is given in the sample payload is one of the scenarios. actual response will vary based on the validation error | String getDescription() | setDescription(String description) |
 | `Details` | `List<String>` | Optional | - | List<String> getDetails() | setDetails(List<String> details) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "code": "E0001",
-  "message": "Bad Request",
-  "description": "Authorization header is missing",
-  "details": [
-    "details7",
-    "details8",
-    "details9"
-  ]
-}
+```java
+import com.shell.apitest.models.BadRequestErrMsg;
+import java.util.Arrays;
+
+BadRequestErrMsg badRequestErrMsg = new BadRequestErrMsg.Builder()
+    .code("E0001")
+    .message("Bad Request")
+    .description("Authorization header is missing")
+    .details(Arrays.asList(
+        "details3"
+    ))
+    .build();
 ```
 

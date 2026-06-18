@@ -16,7 +16,9 @@ Indicates overall status of the request
 
 ## Example
 
-```
-SUCCESS
+```java
+import com.shell.apitest.models.GetChargeSessionRetrieveResponse200JsonStatusEnum;
+
+GetChargeSessionRetrieveResponse200JsonStatusEnum getChargeSessionRetrieveResponse200JsonStatus = GetChargeSessionRetrieveResponse200JsonStatusEnum.SUCCESS;
 ```
 

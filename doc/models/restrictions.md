@@ -23,22 +23,25 @@
 | `MaxDuration` | `Integer` | Optional | Maximum session duration in seconds | Integer getMaxDuration() | setMaxDuration(Integer maxDuration) |
 | `DayOfWeek` | [`List<DayOfWeekEnum>`](../../doc/models/day-of-week-enum.md) | Optional | - | List<DayOfWeekEnum> getDayOfWeek() | setDayOfWeek(List<DayOfWeekEnum> dayOfWeek) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "startTime": "08:00",
-  "endTime": "18:00",
-  "startDate": "2021-10-06",
-  "endDate": "2021-10-31",
-  "minKwh": 0.1,
-  "maxKwh": 100,
-  "minCurrent": 0,
-  "maxCurrent": 500,
-  "minPower": 0,
-  "maxPower": 100,
-  "minDuration": 0,
-  "maxDuration": 86400
-}
+```java
+import com.shell.apitest.DateTimeHelper;
+import com.shell.apitest.models.Restrictions;
+
+Restrictions restrictions = new Restrictions.Builder()
+    .startTime("08:00")
+    .endTime("18:00")
+    .startDate(DateTimeHelper.fromSimpleDate("2021-10-06"))
+    .endDate(DateTimeHelper.fromSimpleDate("2021-10-31"))
+    .minKwh(0.1D)
+    .maxKwh(100D)
+    .minCurrent(0D)
+    .maxCurrent(500D)
+    .minPower(0D)
+    .maxPower(100D)
+    .minDuration(0)
+    .maxDuration(86400)
+    .build();
 ```
 

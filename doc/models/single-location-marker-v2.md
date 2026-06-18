@@ -21,21 +21,26 @@ A Marker is a place on the map that represent a single Location
 | `OperatorName` | `String` | Optional | Operator of this Shell Recharge Location | String getOperatorName() | setOperatorName(String operatorName) |
 | `MarkerType` | `String` | Required, Constant | Type of the Marker, in this case it will always be SingleLocation<br><br>**Value**: `"SingleLocation"` | String getMarkerType() | setMarkerType(String markerType) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "status": "Available",
-  "evseCount": 12.0,
-  "locationCount": 6.0,
-  "locationUid": "2057411",
-  "operatorName": "TheNewMotion",
-  "markerType": "SingleLocation",
-  "coordinates": {
-    "latitude": 39.14,
-    "longitude": 36.94
-  },
-  "maxPower": 45.08
-}
+```java
+import com.shell.apitest.models.Coordinates;
+import com.shell.apitest.models.SingleLocationMarkerStatusEnum;
+import com.shell.apitest.models.SingleLocationMarkerV2;
+
+SingleLocationMarkerV2 singleLocationMarkerV2 = new SingleLocationMarkerV2.Builder(
+    "SingleLocation"
+)
+.status(SingleLocationMarkerStatusEnum.AVAILABLE)
+.coordinates(new Coordinates.Builder()
+        .latitude(39.14D)
+        .longitude(36.94D)
+        .build())
+.evseCount(12D)
+.maxPower(75.6D)
+.locationCount(6D)
+.locationUid("2057411")
+.operatorName("TheNewMotion")
+.build();
 ```
 

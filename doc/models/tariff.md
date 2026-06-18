@@ -17,17 +17,20 @@
 | `UpdatedBy` | [`TariffVOUpdatedByEnum`](../../doc/models/tariff-vo-updated-by-enum.md) | Optional | Source of the last update of the tariff details | TariffVOUpdatedByEnum getUpdatedBy() | setUpdatedBy(TariffVOUpdatedByEnum updatedBy) |
 | `Structure` | `String` | Optional | Tariff structure that this tariff belongs to, typically Default unless specific tariff is defined for provider | String getStructure() | setStructure(String structure) |
 
-## Example (as JSON)
+## Example
 
-```json
-{
-  "startFee": 0.0,
-  "perMinute": 0.12,
-  "perKWh": 0.89,
-  "currency": "EUR",
-  "updated": "07/06/2021 10:44:24",
-  "updatedBy": "TariffService",
-  "structure": "default"
-}
+```java
+import com.shell.apitest.models.Tariff;
+import com.shell.apitest.models.TariffVOUpdatedByEnum;
+
+Tariff tariff = new Tariff.Builder()
+    .startFee(0D)
+    .perMinute(0.12D)
+    .perKWh(0.89D)
+    .currency("EUR")
+    .updated("2021-07-06T10:44:24Z")
+    .updatedBy(TariffVOUpdatedByEnum.TARIFFSERVICE)
+    .structure("default")
+    .build();
 ```
 

@@ -18,7 +18,9 @@ Source of the last update of the tariff details
 
 ## Example
 
-```
-TariffService
+```java
+import com.shell.apitest.models.TariffVOUpdatedByEnum;
+
+TariffVOUpdatedByEnum tariffVOUpdatedBy = TariffVOUpdatedByEnum.FEED;
 ```
 
